@@ -1,0 +1,28 @@
+<!-- Single Tab Content Start -->
+<div *ngIf="!isLoading" class="myaccount-content">
+  <h5>Orders</h5>
+  <div class="myaccount-table table-responsive text-center">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+      <tr>
+        <th>Order</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="orderList?.length>0">
+      <tr *ngFor="let order of orderList;let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{order.created_at|date}}</td>
+        <td>{{order.status_label}}</td>
+        <td>{{order.formated_grand_total}}</td>
+        <td><a [routerLink]="[RouteConfig.orderDetail ,order.id]" class="btn btn-sqr">View</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Single Tab Content End -->

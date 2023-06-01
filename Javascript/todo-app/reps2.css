@@ -1,0 +1,143 @@
+/* Media Queries
+--------------------------------------------- */
+/* for responsive nav bar */
+@media all and (max-width: 779px) {
+    #logo {
+      display: block;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      float: none;
+    }
+    .header {
+      display: none;
+    }
+    /* .toggle {
+      display: block;
+    } */
+    nav {
+      margin: 0;
+    }
+  
+    .toggle + a,
+    .menu {
+      display: none;
+    }
+  
+    .toggle {
+      display: block;
+      background-color: #5256bc;
+      padding: 14px 20px;
+      color: #fff;
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+    }
+  
+    .toggle:hover {
+      background-color: #2a2b5c;
+    }
+  
+    /* menu */
+    [id^="drop"]:checked + ul {
+      display: block;
+    }
+  
+    /* .toggle > ul > li:hover {
+      background-color: #5256bc;
+    } */
+    nav ul li {
+      display: block;
+      width: 100%;
+    }
+  
+    nav ul ul .toggle,
+    nav ul ul a {
+      padding: 0 40px;
+    }
+  
+    nav ul ul a {
+      padding: 0 80px;
+    }
+  
+    /* nav a:hover,
+    nav ul ul a {
+      background-color: white;
+    }
+     */
+    /* .toggle > ul li:hover {
+       color: white;
+       background-color: #5256bc;
+    } */
+    nav ul li .toggle,
+    nav ul ul a {
+      padding: 14px 20px;
+      color: white;
+      font-size: 17px;
+    }
+    nav ul li ul li.toggle,
+    nav ul ul a {
+      background-color: white;
+      color: black;
+    }
+    nav ul ul {
+      float: none;
+      position: static;
+      color: #ffffff;
+    }
+  
+  
+    /* nav ul ul li:hover > ul,
+    nav ul li:hover > ul {
+      display: none;
+    } */
+
+    nav ul ul li {
+      display: block;
+      width: 100%;
+    }
+  
+    nav ul ul li {
+      position: static;
+    }
+  }
+  
+  @media all and (max-width: 330px) {
+    nav ul li {
+      display: block;
+      width: 94%;
+    }
+  }
+  
+
+@media screen and (max-width: 600px) {
+    #header {
+        font-size: 25px;
+        padding: 10px 0px 10px 14px;
+    }
+
+    .list-input {
+        padding: 10px 20px 10px 10px;
+        width: 97%;
+    }
+
+    .list-input > .btn {
+        margin-left: -2px;
+    }
+
+}
+
+@media screen and (max-width:812px) {
+    .list-input > input[type=text] {
+        width: 85%;
+    }
+    
+    .todo-list .todo-list-inner {
+        min-width: 89%;
+    }
+
+    .todo-list .todo-list-inner .item {
+        width: 90%;
+    }
+}
+

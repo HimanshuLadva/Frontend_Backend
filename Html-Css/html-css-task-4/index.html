@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>my assignment</title>
+</head>
+
+<body>
+
+    <header class="l-header" id="header">
+        <nav class="upper">
+            <ul class="upper_nav" id="nv">
+                <li><a href="#" class="un">Login</a></li>
+                <li><a href="#" class="un"><i class="fa-solid fa-flag-usa"></i>UK</a></li>
+                <li><a href="#" class="un"><i class="fa-solid fa-cart-shopping"></i>3items</a></li>
+            </ul>
+        </nav>
+        <nav class="nav bd-container">
+
+            <i class="fa-solid fa-infinity"></i>
+            <a href="#" class="nav__logo">Purpose</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list" id="nv2">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#share" class="nav__link">Features</a></li>
+                    <li class="nav__item"><a href="#decoration" class="nav__link">Page+</a></li>
+                    <li class="nav__item"><a href="#accessory" class="nav__link">Credits</a></li>
+                    <li class="nav__item"><a href="#" class="un-li nav__link">Login</a></li>
+                    <li class="nav__item"><a href="#" class="un-li nav__link">
+                        <i class="fa-solid fa-flag-usa"></i>UK</a>
+                    </li>
+                    <li class="nav__item"><a href="#" class="un-li nav__link">
+                        <i class="fa-solid fa-cart-shopping"></i>3items</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt'></i>
+            </div>
+        </nav>
+    </header>
+    <div style="clear: both;"></div>
+    <!-- Slideshow container -->
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./nature.jpg" style="width:100%">
+            <!-- <div class="text">Caption Text</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./hut.webp" style="width:100%">
+            <!-- <div class="text">Caption Two</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./lion.jpg" style="width:100%">
+            <!-- <div class="text">Caption Three</div> -->
+        </div>
+
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+        <div class="maindot">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <br>
+
+
+
+    <div style="clear: both"></div>
+    <section class="info">
+        <div class="container">
+            <div class="column">
+                <p>
+                    <span>"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum harum quisquam nihil
+                    aut
+                    dolorum aspernatur."
+                </p>
+                <div class="info-font"><strong>WIRED</strong></div>
+            </div>
+            <div class="column">
+                <p>
+                    <span>"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum harum quisquam nihil
+                    aut
+                    dolorum aspernatur.
+                </p>
+                <div class="info-font"><strong>Mashable</strong></div>
+            </div>
+            <div class="column">
+                <p>
+                    <span>"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum harum quisquam nihil
+                    aut
+                    dolorum aspernatur.
+                </p>
+                <div class="info-font"><strong>TechCrunch</strong></div>
+            </div>
+        </div>
+    </section>
+    <div style="clear: both;"></div>
+
+
+    <section class="footer">
+        <div class="container">
+            <div class="col">
+                <p>
+                    <i class="fa-solid fa-gem"></i><br>
+                    <strong>Aliquam in adipiscing</strong>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    <i class="fa-solid fa-pen-ruler"></i><br>
+                    <strong>Curabitur moliis</strong>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    <i class="fa-solid fa-box-open"></i><br>
+                    <strong>Vivamus mattis</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./script.js"></script>
+
+</html>

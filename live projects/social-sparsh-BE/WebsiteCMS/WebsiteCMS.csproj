@@ -1,0 +1,114 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>63c44187-2c1c-4abd-8f4b-6c9f2b66f856</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Resources\WCMS\Temporary\UploadedImgs\NewFolder\**" />
+		<Compile Remove="Services\**" />
+		<Compile Remove="wwwroot\Images\**" />
+		<Compile Remove="wwwroot\SCRM\DownloadImages\**" />
+		<Compile Remove="wwwroot\SCRM\FieldImages\**" />
+		<Compile Remove="wwwroot\SCRM\FontFamilies\**" />
+		<Compile Remove="wwwroot\SCRM\TemplateImages\**" />
+		<Content Remove="Resources\WCMS\Temporary\UploadedImgs\NewFolder\**" />
+		<Content Remove="Services\**" />
+		<Content Remove="wwwroot\Images\**" />
+		<Content Remove="wwwroot\SCRM\DownloadImages\**" />
+		<Content Remove="wwwroot\SCRM\FieldImages\**" />
+		<Content Remove="wwwroot\SCRM\FontFamilies\**" />
+		<Content Remove="wwwroot\SCRM\TemplateImages\**" />
+		<EmbeddedResource Remove="Resources\WCMS\Temporary\UploadedImgs\NewFolder\**" />
+		<EmbeddedResource Remove="Services\**" />
+		<EmbeddedResource Remove="wwwroot\Images\**" />
+		<EmbeddedResource Remove="wwwroot\SCRM\DownloadImages\**" />
+		<EmbeddedResource Remove="wwwroot\SCRM\FieldImages\**" />
+		<EmbeddedResource Remove="wwwroot\SCRM\FontFamilies\**" />
+		<EmbeddedResource Remove="wwwroot\SCRM\TemplateImages\**" />
+		<None Remove="Resources\WCMS\Temporary\UploadedImgs\NewFolder\**" />
+		<None Remove="Services\**" />
+		<None Remove="wwwroot\Images\**" />
+		<None Remove="wwwroot\SCRM\DownloadImages\**" />
+		<None Remove="wwwroot\SCRM\FieldImages\**" />
+		<None Remove="wwwroot\SCRM\FontFamilies\**" />
+		<None Remove="wwwroot\SCRM\TemplateImages\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="Magick.NET.Core" Version="6.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NPOI" Version="2.5.6" />
+		<PackageReference Include="RestSharp" Version="108.0.3" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="obj\**" />
+		<Content Remove="obj\**" />
+		<EmbeddedResource Remove="obj\**" />
+		<None Remove="obj\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AspNetCoreRateLimit" Version="4.0.2" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NPOI" Version="2.5.6" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Resources\SCRM\" />
+		<Folder Include="Services\WCMS\Temporary\" />
+		<Folder Include="Services\WCMS\Zip\" />
+		<Folder Include="Resources\SCRM\Private\Images\TemplateImages\" />
+		<Folder Include="Resources\WCMS\Zip\" />
+		<Folder Include="wwwroot\SCRM\SocialImages\" />
+		<Folder Include="wwwroot\WCMS\Images\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\WCMS\Images\UserImages\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\WebsiteCMS.BLL\WebsiteCMS.BLL.csproj" />
+		<ProjectReference Include="..\WebsiteCMS.DAL\WebsiteCMS.DAL.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WebsiteCMS.DAL\WebsiteCMS.DAL.csproj" />
+		<ProjectReference Include="..\WebsiteCMS.Global\WebsiteCMS.Global.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,105 @@
+<!-- offcanvas mini cart start -->
+<div class="offcanvas-minicart-wrapper">
+  <div class="minicart-inner">
+    <div class="offcanvas-overlay"></div>
+    <div class="minicart-inner-content">
+      <div class="minicart-close">
+        <i class="pe-7s-close"></i>
+      </div>
+      <div *ngIf="!isLoading && cart" class="minicart-content-box">
+        <div class="minicart-item-wrapper">
+          <ul *ngIf="cart?.items?.length > 0">
+            <li
+              *ngFor="let item of cart.items; let i = index"
+              class="minicart-item"
+            >
+              <div class="minicart-thumb">
+                <a
+                  [routerLink]="[
+                    RouteConfig.productDetail,
+                    item.product.url_key
+                  ]"
+                >
+                  <img
+                    [src]="item.product.base_image.small_image_url"
+                    alt="product"
+                  />
+                </a>
+              </div>
+              <div class="minicart-content">
+                <h3 class="product-name">
+                  <a
+                    [routerLink]="[
+                      RouteConfig.productDetail,
+                      item.product.url_key
+                    ]"
+                    >{{ item.name }}</a
+                  >
+                </h3>
+                <p>
+                  <span class="cart-quantity"
+                    >{{ item.quantity }} <strong>&times;</strong>
+                  </span>
+                  <span class="cart-price">{{ item.formated_price }}</span>
+                </p>
+              </div>
+              <button
+                (click)="removeProductFromCart(item.id)"
+                class="minicart-remove"
+              >
+                <i class="pe-7s-close"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="minicart-pricing-box">
+          <ul>
+            <li>
+              <span>sub-total</span>
+              <span
+                ><strong>{{ cart?.formated_sub_total }}</strong></span
+              >
+            </li>
+            <li>
+              <span>Eco Tax (-2.00)</span>
+              <span
+                ><strong>{{ cart?.formated_tax_total }}</strong></span
+              >
+            </li>
+            <!--            <li>-->
+            <!--              <span>VAT (20%)</span>-->
+            <!--              <span><strong>$60.00</strong></span>-->
+            <!--            </li>-->
+            <li class="total">
+              <span>total</span>
+              <span
+                ><strong>{{ cart?.formated_grand_total }}</strong></span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="minicart-button">
+          <a [routerLink]="RouteConfig.cart"
+            ><i class="fa fa-shopping-cart"></i> View Cart</a
+          >
+          <a [routerLink]="RouteConfig.checkout"
+            ><i class="fa fa-share"></i> Checkout</a
+          >
+        </div>
+      </div>
+      <div class="minicart-content-box" *ngIf="!isLoading && !cart">
+        <div class="minicart-pricing-box">
+          <h5 class="text-center">Your Cart Is Currently Empty</h5>
+        </div>
+        <div class="minicart-button">
+          <a [routerLink]="RouteConfig.home">
+            <i class="fa fa-shopping-cart d-none"></i> Go to shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- offcanvas mini cart end -->

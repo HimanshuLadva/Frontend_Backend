@@ -1,0 +1,6 @@
+<div class="main_div">
+    <div class="detail" *ngFor="let item of printDetails">
+      <a (click)="peopleDetail(item.count);getingData(item.data)"><img src="https://starwars-visualguide.com/assets/img/characters/{{item.count}}.jpg" alt="No image found"></a>
+      <h2>{{item.name}}</h2>
+    </div>
+</div>

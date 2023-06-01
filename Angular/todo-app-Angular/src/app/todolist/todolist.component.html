@@ -1,0 +1,66 @@
+<h1>todolist works!</h1>
+<div class="container">
+  <div class="header">TODO-APP</div>
+
+  <div class="list-input">
+    <input
+    type="text"
+    class="input-element"
+    #todo
+    (keydown.enter)="addTodo(todo, search)"
+    placeholder="Enter your todo"
+    [disabled]=""
+    />
+    <input
+      type="text"
+      #search
+      class="search-lws"
+      placeholder="Enter your search" 
+      [disabled]="true"
+      (keyup)="searchTodoWord(search, todo)"
+      
+    />
+    <button class="add-todo btn" (click)="addTodo(todo, search)">Add Todo</button>
+    <button class="search-todo btn" (click)="searchTodo(todo, search); searchAction = 'search'">Search Todo</button>
+  </div>
+  <div class="buttons">
+      <ul style="display: inline-block;">
+        <li><input type="radio" (click)="filter ='all'" name="todo">All</li>
+        <li><input type="radio" (click)="filter ='active'" name="todo">Active</li>
+        <li><input type="radio" (click)="filter ='done'" name="todo">Completed</li>
+        <!-- <li><a href="#" (click)="filter ='all'">All</a></li>
+        <li><a href="#" (click)="filter = 'active'">Active</a></li>
+        <li><a href="#" (click)="filter = 'done'">Completed</a></li> -->
+      </ul>
+      <ul style="display: inline-block;">
+        <li><a href="#" (click)="action ='A-Z'">A-Z</a></li>
+        <li><a href="#" (click)="action = 'Z-A'">Z-A</a></li>
+        <li><a href="#" (click)="action = 'Newest'">Newest</a></li>
+        <li><a href="#" (click)="action = 'Oldest'">Oldest</a></li>
+      </ul>
+      <ul style="display: inline-block;">
+        <li><a href="#" (click)="select ='selectAll'">selectAll</a></li>
+        <li><a href="#" (click)="select = 'unselectAll'">unselectAll</a></li>
+        <li><a href="#" (click)="select = 'deleteSelected'">deleteSelected</a></li>
+      </ul>
+  </div>
+<hr><hr>
+  <ul *ngIf="showTodo">
+    <li class="item" *ngFor="let item of searchArr; let i = index;"> 
+        <input type="checkbox" name="checkBox" id="checkBox" class="checking" [checked]="item.isCompleted"/>
+        <input type="text" class="list-value" value={{item.data}} [disabled]="true" #todoInput/>
+        <button class="edit-list list-btn" (click)="editTodo(todoInput)">Edit</button>
+        <button class="save-list list-btn" (click)="saveTodo(todoInput,item.id)">Save</button>
+        <button class="delete-list list-btn" (click)="deleteTodo(item.id)">Delete</button>
+    </li>
+  </ul>
+  <ul *ngIf="!showTodo">
+    <li class="item" *ngFor="let item of mylist; let i = index"> 
+        <input type="checkbox" name="checkBox" id="checkBox" class="checking" [checked]="item.isCompleted" (click)="checkOrNot(item.id)"/>
+        <input type="text" class="list-value" value={{item.data}} [disabled]="true" #todoInput/>
+        <button class="edit-list list-btn" (click)="editTodo(todoInput)">Edit</button>
+        <button class="save-list list-btn" (click)="saveTodo(todoInput,item.id)">Save</button>
+        <button class="delete-list list-btn" (click)="deleteTodo(item.id)">Delete</button>
+    </li>
+  </ul>
+</div>

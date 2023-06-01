@@ -1,0 +1,123 @@
+<!-- Single Tab Content Start -->
+
+<div class="myaccount-content">
+  <h5>Billing Address <span (click)="toggleForm()" class="ml-2 C_P"><i
+    class="fa fa-plus-circle"></i></span></h5>
+  <button #formButton
+          [attr.data-target]="'#couponaccordion_new'"
+          aria-expanded="false" class="d-none" data-toggle="collapse"></button>
+  <div class="checkoutaccordion" id="checkOutAccordion">
+    <div class="card">
+      <div [id]="'couponaccordion_new'" class="collapse mt-1" data-parent="#checkOutAccordion">
+        <div class="card-body pt-5">
+          <div class="cart-update-option">
+            <div class="billing-form-wrap">
+              <form (ngSubmit)="addressFormSubmit()" [formGroup]="addressForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="single-input-item">
+                      <label class="required" for="f_name">First Name</label>
+                      <input [class]="hasErrorClass(addressForm.get('first_name'))" formControlName="first_name"
+                             id="f_name" placeholder="First Name"
+                             required="" type="text">
+                      <small *ngIf="hasError(addressForm.get('first_name'))" class="text-danger">Please Enter
+                        first name</small>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="single-input-item">
+                      <label class="required" for="l_name">Last Name</label>
+                      <input [class]="hasErrorClass(addressForm.get('last_name'))" formControlName="last_name"
+                             id="l_name" placeholder="Last Name" required="" type="text">
+                      <small *ngIf="hasError(addressForm.get('last_name'))" class="text-danger">Please Enter
+                        last name</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="single-input-item">
+                  <label for="com-name">Company Name</label>
+                  <input formControlName="company_name" id="com-name" placeholder="Company Name" type="text">
+                </div>
+
+                <div class="single-input-item">
+                  <label class="required" for="country">Country</label>
+                  <select [class]="hasErrorClass(addressForm.get('country'))" class="form-control nice-select"
+                          formControlName="country" id="country"
+                          name="country nice-select">
+                    <option *ngFor="let country of countryList" [value]="country.code">{{country.name}}
+                      ({{country.code}})
+                    </option>
+                  </select>
+                  <small *ngIf="hasError(addressForm.get('country'))" class="text-danger">Please Select
+                    country</small>
+                </div>
+
+                <div class="single-input-item">
+                  <label class="required mt-20" for="street-address">Street address</label>
+                  <input [class]="hasErrorClass(addressForm.get('address_line_1'))" formControlName="address_line_1"
+                         id="street-address" placeholder="Street address Line 1"
+                         required=""
+                         type="text">
+                  <small *ngIf="hasError(addressForm.get('address_line_1'))" class="text-danger">Please Enter
+                    address Line 1</small>
+                </div>
+
+                <div class="single-input-item">
+                  <input formControlName="address_line_2" placeholder="Street address Line 2 (Optional)" type="text">
+                </div>
+
+                <div class="single-input-item">
+                  <label class="required" for="postcode">Postcode / ZIP</label>
+                  <input (change)="loadFromPostcode($event.target.value)"
+                         [class]="hasErrorClass(addressForm.get('postcode'))" formControlName="postcode" id="postcode"
+                         placeholder="Postcode / ZIP"
+                         required="" type="text">
+                  <small *ngIf="hasError(addressForm.get('postcode'))" class="text-danger">Please Enter
+                    Postcode</small>
+                </div>
+                <div class="single-input-item">
+                  <label class="required" for="town">Town / City</label>
+                  <input [class]="hasErrorClass(addressForm.get('city'))" formControlName="city" id="town"
+                         placeholder="Town / City" required="" type="text">
+                  <small *ngIf="hasError(addressForm.get('city'))" class="text-danger">Please Enter
+                    city</small>
+                </div>
+
+                <div class="single-input-item">
+                  <label class="required" for="state">State</label>
+                  <input [class]="hasErrorClass(addressForm.get('state_'))" formControlName="state_" id="state"
+                         placeholder="State" type="text">
+                  <small *ngIf="hasError(addressForm.get('state_'))" class="text-danger">Please Enter
+                    state</small>
+                </div>
+
+
+                <div class="single-input-item">
+                  <label for="phone">Phone</label>
+                  <input formControlName="phone" id="phone" placeholder="Phone" type="text">
+                </div>
+                <button class="btn btn-sqr mt-2" type="submit">{{addressForm?.value?.id ? 'Update ' : 'Save '}}Address
+                </button>
+                <button (click)="clickFormButton(true)" [attr.data-target]="'#couponaccordion_new'"
+                        aria-expanded="false"
+                        class="btn btn-sqr bg-secondary mt-2 ml-2" data-toggle="collapse" type="button">Cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngFor="let address of addressList;let i = index">
+      <app-address [address]="address" class="mt-2"></app-address>
+      <button (click)="toggleForm(i)" class="btn btn-sqr w_fit_content"
+      ><i class="fa fa-edit"></i>
+        Edit Address
+      </button>
+    </ng-container>
+  </div>
+</div>
+<!-- Single Tab Content End -->

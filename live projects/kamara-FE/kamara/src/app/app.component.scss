@@ -1,0 +1,102 @@
+.modal-fade-in {
+  display: block;
+  height: 100% !important;
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  color: #454545;
+  font-weight: 500;
+  overflow-y: scroll;
+  transition: opacity 0.15s linear;
+  background-color: rgba(180, 172, 172, 0.37);
+  box-sizing: border-box;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal-dialog {
+  max-width: 400px;
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-clip: padding-box;
+  outline: 0;
+}
+
+.ic-close-quickview {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.locale {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.locale__header {
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 1.28;
+  color: #333;
+  margin: 25px 0 24px;
+}
+
+.locale__image {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.locale__message {
+  margin-top: 24px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.31;
+  color: #333;
+  width: 300px;
+}
+
+.apply-button {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
+  line-height: 1;
+  font-weight: bold;
+  outline: 0;
+  background-color: #202020;
+  color: #fff;
+  border: 0;
+  font-size: 17px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 420px) {
+  .modal-content {
+    height: 95.5vh;
+  }
+}

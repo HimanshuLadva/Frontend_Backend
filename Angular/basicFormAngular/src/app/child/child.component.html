@@ -1,0 +1,6 @@
+<h2>{{item}}</h2>
+<h2>{{item2}}</h2>
+<app-inner-child [inneritem]="data"></app-inner-child>
+
+<input type="text" name="fname" #box>
+<button (click)="updateDataEvent.emit(box.value)">Send data to parent</button>

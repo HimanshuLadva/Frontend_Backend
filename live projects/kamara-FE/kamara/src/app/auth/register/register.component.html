@@ -1,0 +1,140 @@
+<app-breadcrumb></app-breadcrumb>
+
+<!-- login register wrapper start -->
+<div class="login-register-wrapper section-padding">
+  <div class="container">
+    <div class="member-area-from-wrap">
+      <div class="row">
+        <!-- Register Content Start -->
+        <div class="col-lg-6">
+          <div class="login-reg-form-wrap">
+            <h5>Sing Up Form</h5>
+            <form
+              (ngSubmit)="register(registerForm)"
+              [formGroup]="registerForm"
+            >
+              <ng-container *ngIf="registerFormError?.length > 0">
+                <div *ngFor="let err of registerFormError" class="text-danger">
+                  <p *ngFor="let v of err.value">{{ err.key }} : {{ v }}</p>
+                </div>
+              </ng-container>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      [class]="hasErrorClass(registerForm.get('first_name'))"
+                      formControlName="first_name"
+                      placeholder="Enter your first name"
+                      required
+                      type="text"
+                    />
+                    <small
+                      *ngIf="hasError(registerForm.get('first_name'))"
+                      class="text-danger"
+                      >Please Enter first name</small
+                    >
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      [class]="hasErrorClass(registerForm.get('last_name'))"
+                      formControlName="last_name"
+                      placeholder="Enter your last name"
+                      required
+                      type="text"
+                    />
+                    <small
+                      *ngIf="hasError(registerForm.get('last_name'))"
+                      class="text-danger"
+                      >Please Enter last name</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="single-input-item">
+                <input
+                  [class]="hasErrorClass(registerForm.get('email'))"
+                  formControlName="email"
+                  placeholder="Enter your Email"
+                  required
+                  type="email"
+                />
+                <small
+                  *ngIf="hasError(registerForm.get('email'))"
+                  class="text-danger"
+                  >Please Enter Email</small
+                >
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      [class]="hasErrorClass(registerForm.get('password'))"
+                      formControlName="password"
+                      placeholder="Enter your Password"
+                      required
+                      type="password"
+                    />
+                    <small
+                      *ngIf="hasError(registerForm.get('password'))"
+                      class="text-danger"
+                      >Please Enter Password</small
+                    >
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      [class]="
+                        hasErrorClass(registerForm.get('password_confirmation'))
+                      "
+                      formControlName="password_confirmation"
+                      placeholder="Confirm your Password"
+                      required
+                      type="password"
+                    />
+                    <small
+                      *ngIf="
+                        hasError(registerForm.get('password_confirmation'))
+                      "
+                      class="text-danger"
+                      >Please Enter Confirm Password</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="single-input-item">
+                <div class="login-reg-form-meta">
+                  <div class="remember-meta">
+                    <div class="custom-control custom-checkbox">
+                      <input
+                        class="custom-control-input"
+                        id="subnewsletter"
+                        type="checkbox"
+                      />
+                      <label class="custom-control-label" for="subnewsletter"
+                        >Subscribe Our Newsletter</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="single-input-item">
+                <button class="btn btn-sqr">Register</button>
+              </div>
+              <div class="createAccountContainer">
+                Already have an account?
+                <a class="createAccount" [routerLink]="routeConfig.auth_login"
+                  >Login</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Register Content End -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- login register wrapper end -->

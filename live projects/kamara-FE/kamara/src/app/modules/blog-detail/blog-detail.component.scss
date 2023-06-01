@@ -1,0 +1,44 @@
+//== Brand Color
+$theme-color: #221c36;
+
+$sm-device: "only screen and (max-width: 767.98px)";
+$xs-device: "only screen and (max-width: 575.98px)";
+$xxs-device: "only screen and (max-width: 479.98px)";
+
+$custom-color-p: #221c36;
+
+.entry-summary {
+    padding-top: 25px;
+}
+
+blockquote {
+    border-left: 5px solid $theme-color;
+    margin: 25px 32px 25px 30px;
+    background-color: #f8f8f8;
+    padding: 15px;
+}
+.blog-details-post {
+    .blog-content {
+        .blog-title {
+            padding-top: 10px;
+            // responsive
+            @media #{$sm-device} {
+                font-size: 20px;
+            }
+            @media #{$xxs-device} {
+                font-size: 18px;
+            }
+        }
+        .blog-meta {
+            padding-top: 15px;
+            padding-bottom: 0;
+        }
+    }
+    &:hover {
+        .blog-thumb {
+            img {
+                transform: none;
+            }
+        }
+    }
+}

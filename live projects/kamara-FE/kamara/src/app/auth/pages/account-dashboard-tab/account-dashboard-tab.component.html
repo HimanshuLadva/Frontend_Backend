@@ -1,0 +1,17 @@
+<!-- Single Tab Content Start -->
+<div class="myaccount-content">
+  <h5>Dashboard</h5>
+  <div class="welcome">
+    <p>Hello,
+      <strong>{{authService.User.first_name|titlecase}} {{authService.User.last_name|titlecase}}</strong>
+      (If
+      Not <strong>{{authService.User.last_name|titlecase}}
+        !</strong><a (click)="authService.logout()" class="logout C_P">
+        Logout</a>)</p>
+  </div>
+  <p class="mb-0">From your account dashboard. you can easily check &
+    view your recent orders, manage your shipping and billing
+    addresses
+    and edit your password and account details.</p>
+</div>
+<!-- Single Tab Content End -->

@@ -1,0 +1,7 @@
+C:\C# intermidiate\CsLinQ\bin\Debug\CsLinQ.exe.config
+C:\C# intermidiate\CsLinQ\bin\Debug\CsLinQ.exe
+C:\C# intermidiate\CsLinQ\bin\Debug\CsLinQ.pdb
+C:\C# intermidiate\CsLinQ\obj\Debug\CsLinQ.csproj.AssemblyReference.cache
+C:\C# intermidiate\CsLinQ\obj\Debug\CsLinQ.csproj.CoreCompileInputs.cache
+C:\C# intermidiate\CsLinQ\obj\Debug\CsLinQ.exe
+C:\C# intermidiate\CsLinQ\obj\Debug\CsLinQ.pdb

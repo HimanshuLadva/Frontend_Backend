@@ -1,0 +1,102 @@
+<h1 class="{{data}}">Hello angular {{title}}</h1>
+<h1>Hii {{greettings()}}</h1>
+<!-- <button (click) = "getName('himanshu')">Click Me</button>
+<button (click) = "getName('HALadva')">Click Me 2</button>
+<br><br>
+<input type="text" #box1 placeholder="key up" (keyup)="getData(box1.value)">
+<br><br>
+<input type="text" placeholder="key down" #box2 (keydown)="getData(box2.value)">
+<br><br>
+<input type="text" placeholder="blur" #box3 (blur)="getData(box3.value)">
+<br><br>
+<input type="text" placeholder="input" #box4 (input)="getData(box4.value)">
+<h1 (mouseover)="getData('mouseover event')">Let's try mouse over</h1>
+<h1 (mouseleave)="getData('mouseleave event')">Let's try mouse leave</h1> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- multiple event -->
+<!-- <button (click)="getData('click event')" (mouseover)="getData('mouseover2 event')">Click Mul</button> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- get value and print -->
+<!-- get value on input -->
+<!-- <input type="text" #box (keyup)="getValue(box.value)" placeholder="Enter the Name"> -->
+
+<!-- get value on click -->
+<!-- <br>
+<input type="text" #box placeholder="Enter the Name">
+<button (click)="getValue(box.value)">Click Me</button>
+<p>My Name is {{displayData}}</p> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h2>Make Counter</h2>
+<button (click)="counter('dec')">--</button>
+<p>Count : {{count}}</p>
+<button (click)="counter('inc')">++</button> -->
+
+<!-- <h1 class="heading" style="color: hotpink;">style</h1>
+<style>
+    .heading {
+        color: green;
+    }
+</style>
+<app-login></app-login>  -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1>Property binding</h1>
+<input type="text" value = "{{data}}" disabled = "{{disabled}}">
+<br><br>
+<input type="text" [value] = "data" [disabled]="disabled"> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1 *ngIf="show else elseblock">If else condition</h1> -->
+<!-- <h1 *ngIf="show; then ifblock else elseblock"></h1>
+<ng-template #ifblock>
+    <h1>If Condition</h1>
+</ng-template>
+<ng-template #elseblock>
+    <h1>Else Condition</h1>
+</ng-template> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1>Muultiple if else condition</h1>
+<ng-template [ngIf] = "color === 'red'">
+     <h1>red color</h1>
+</ng-template>
+<ng-template [ngIf] = "color === 'blue'"> 
+     <h1>blue color</h1>
+</ng-template>
+<ng-template [ngIf] = "color === 'green'">
+     <h1>green color</h1>
+</ng-template> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1>Switch Case</h1>
+<div [ngSwitch]="color">
+    <h1 *ngSwitchCase="'red'">Red color</h1>
+    <h1 *ngSwitchCase="'blue'">blue color</h1>
+    <h1 *ngSwitchCase="'yellow'">yellow color</h1>
+    <h1 *ngSwitchCase="'green'">greeen color</h1>
+    <h1 *ngSwitchDefault>no color</h1>
+</div> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1>For loop</h1>
+<h3 *ngFor="let item of users">{{item}}</h3>
+<h3 *ngFor="let item of arr">{{item.name}} -- {{item.age}}</h3> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1>nested loop</h1>
+<ul *ngFor="let item of nestedArr">
+    <li>{{item.name}}</li>
+    <li>{{item.age}}</li>
+    <ul *ngFor="let account of item.accounts" >
+        <li>{{account}}</li>
+    </ul>
+</ul> -->
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <h1 [style.color]="color" [style.backgroundColor]="bgColor" >dynamic style binding</h1>
+<h1 [style.color]="color">dynamic style binding 2</h1>
+<button (click)= "updateColor()">Change color</button> -->
+<app-header></app-header>

@@ -1,0 +1,4 @@
+<span *ngFor="let rate of [1, 2, 3, 4, 5]" class="text-primary">
+  <i class="fa fa-star" *ngIf="rating >= rate"></i>
+  <i class="fa fa-star-o" *ngIf="rating < rate"></i>
+</span>

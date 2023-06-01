@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // background: url('./assets/5955903.webp');
+    background: black;
+    color: white;
+}
+
+.main-logo {
+  margin-bottom: -66px;
+  img {
+    width: 31%;
+  }
+}
+.b-border {
+  .pagination {
+      display: block;
+      float: right;
+      margin: 20px 11px 0px 11px;
+  }
+  
+  .breadcrump {
+    .bread{
+         li {
+           cursor: pointer;
+            display: inline-block;
+            letter-spacing: 4px;
+            margin: 20px 11px 0px 11px;
+         }
+    }
+  }
+  border-bottom: 2px solid white; 
+  margin-top: 6px;  
+  margin-bottom: 20px; 
+}
+
+.name-of-image {
+  font-size: 20px;
+}
+.main_div {
+    display: grid;
+    grid-template-columns: 260px 260px 260px 260px 260px;
+    color: white;
+    .detail {
+      img {
+        width: 100%;
+        height: 325px;
+        border: 3px solid white;
+        &:hover {
+          border: 3px solid rgb(247, 211, 8);  
+        }
+      }
+      h4 {
+        text-align: center;
+        margin-top: 0px;
+      }
+      margin: 14px;
+    }
+} 
+
+// loader 
+// .spinner-border {
+//   display: inline-block;
+//   width: 3rem;
+//   height: 3rem;
+//   vertical-align: text-bottom;
+//   border: 0.25em solid #221c36;
+//   border-right-color: red;
+//   border-radius: 50%;
+//   animation: spinner-border 0.75s linear infinite;
+// }
+
+// #loading {
+//   z-index: 1;
+//   // border: 3px solid #b90909;
+//   border-radius: 50%;
+//   border-top: 3px solid #212149;
+//   width: 100px;
+//   height: 100px;
+//   animation: spin 2s linear infinite;
+// }
+
+.loader {
+  border: 3px solid red;
+  border-radius: 50%;
+  border-top: 3px solid black;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

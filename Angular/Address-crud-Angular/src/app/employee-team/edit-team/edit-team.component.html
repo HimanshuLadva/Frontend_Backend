@@ -1,0 +1,18 @@
+<form [formGroup]="editForm" (ngSubmit)="editData()">
+    <label>Team Name: </label>
+    <input type="text" id="teamName" formControlName="teamName" [(ngModel)]="dataGetFromTeamList.teamName"><br>
+
+    <h2>Employees in team</h2>
+    <div formArrayName="employees">
+        <ul *ngFor="let item of editForm.get('employees')['controls'];let i = index;" formGroupName="{{i}}">
+            <li> 
+               <label>Employee {{i+1}}: </label>
+               <input type="text" id="employee" formControlName="employee">&nbsp;
+               <button (click)="removeEmployee(i)">Delete</button>
+            </li>
+         </ul>
+        <a (click)="addEmployee()">Add</a>
+    </div>
+    <br>
+    <button type="submit">Submit Data</button>
+</form>

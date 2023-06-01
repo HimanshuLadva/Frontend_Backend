@@ -1,0 +1,7 @@
+C:\CsObject-class\bin\Debug\CsObject-class.exe.config
+C:\CsObject-class\bin\Debug\CsObject-class.exe
+C:\CsObject-class\bin\Debug\CsObject-class.pdb
+C:\CsObject-class\obj\Debug\CsObject-class.csproj.AssemblyReference.cache
+C:\CsObject-class\obj\Debug\CsObject-class.csproj.CoreCompileInputs.cache
+C:\CsObject-class\obj\Debug\CsObject-class.exe
+C:\CsObject-class\obj\Debug\CsObject-class.pdb

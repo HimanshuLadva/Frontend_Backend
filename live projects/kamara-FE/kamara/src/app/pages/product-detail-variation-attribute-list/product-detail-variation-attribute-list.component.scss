@@ -1,0 +1,97 @@
+$border-width-1: 1px;
+/* === color selct csss */
+.color-part span {
+  width: 25px;
+  height: 25px;
+  background-color: #000;
+  display: block;
+  border-radius: 50%;
+  margin: 5px;
+}
+.color-part {
+  border: $border-width-1 solid #fff;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.color-part:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  transition-duration: 0.4s;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 15px;
+  transform: scale(0);
+}
+.color-part.checked {
+  border-color: #221c36;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+.color-part.checked:before {
+  content: "✓";
+  background-color: #221c36;
+  transform: scale(1);
+  border-radius: 5px;
+  color: #fff;
+}
+.color-part.checked span {
+  z-index: -1;
+}
+
+/* === imaes select css */
+.img-part {
+  border: $border-width-1 solid #fff;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+  //padding: 15px;
+  width: 60px;
+}
+.img-part:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -15px;
+  left: 18px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  transition-duration: 0.4s;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  transform: scale(0);
+}
+.img-part.checked {
+  border-color: #221c36;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+.img-part.checked:before {
+  content: "✓";
+  background-color: #221c36;
+  transform: scale(1);
+  border-radius: 5px;
+  color: #fff;
+}
+.img-part.checked img {
+  z-index: -1;
+}
+.img-part img {
+  width: 100px;
+  height: auto;
+}
+.img-part p {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: 10px;
+}

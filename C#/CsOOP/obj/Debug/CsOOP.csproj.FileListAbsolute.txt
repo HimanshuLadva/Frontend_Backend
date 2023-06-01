@@ -1,0 +1,7 @@
+C:\CsOOP\bin\Debug\CsOOP.exe.config
+C:\CsOOP\bin\Debug\CsOOP.exe
+C:\CsOOP\bin\Debug\CsOOP.pdb
+C:\CsOOP\obj\Debug\CsOOP.csproj.AssemblyReference.cache
+C:\CsOOP\obj\Debug\CsOOP.csproj.CoreCompileInputs.cache
+C:\CsOOP\obj\Debug\CsOOP.exe
+C:\CsOOP\obj\Debug\CsOOP.pdb

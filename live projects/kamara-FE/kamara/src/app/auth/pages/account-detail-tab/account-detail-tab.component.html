@@ -1,0 +1,140 @@
+<!-- Single Tab Content Start -->
+<div class="myaccount-content">
+  <h5>Account Details</h5>
+  <div class="account-details-form">
+    <form (ngSubmit)="detailFormSubmit()" [formGroup]="detailForm">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="single-input-item">
+            <label class="required" for="first-name">First Name</label>
+            <input
+              [class]="hasErrorClass(detailForm.get('first_name'))"
+              formControlName="first_name"
+              id="first-name"
+              placeholder="First Name"
+              type="text"
+            />
+            <small
+              *ngIf="hasError(detailForm.get('first_name'))"
+              class="text-danger"
+              >Please Enter First name</small
+            >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="single-input-item">
+            <label class="required" for="last-name">Last Name</label>
+            <input
+              [class]="hasErrorClass(detailForm.get('last_name'))"
+              formControlName="last_name"
+              id="last-name"
+              placeholder="Last Name"
+              type="text"
+            />
+            <small
+              *ngIf="hasError(detailForm.get('last_name'))"
+              class="text-danger"
+              >Please Enter Last name</small
+            >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="single-input-item">
+            <label class="required" for="last-name">Birth Date</label>
+            <input
+              formControlName="date_of_birth"
+              placeholder="Last Name"
+              type="date"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="single-input-item">
+            <div class="single-input-item">
+              <label class="required">Gender</label>
+              <select class="form-control nice-select" formControlName="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="single-input-item">
+        <button class="btn btn-sqr">Save Changes</button>
+      </div>
+    </form>
+    <form
+      (ngSubmit)="passwordResetFormSubmit()"
+      [formGroup]="passwordResetForm"
+    >
+      <fieldset>
+        <legend>Password change</legend>
+        <div class="single-input-item">
+          <label class="required" for="current-pwd">Current Password</label>
+          <input
+            [class]="hasErrorClass(passwordResetForm.get('old_password'), true)"
+            formControlName="old_password"
+            id="current-pwd"
+            placeholder="Current Password"
+            type="password"
+          />
+          <small
+            *ngIf="hasError(passwordResetForm.get('old_password'), true)"
+            class="text-danger"
+            >Please Enter Current Password</small
+          >
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="single-input-item">
+              <label class="required" for="new-pwd">New Password</label>
+              <input
+                [class]="
+                  hasErrorClass(passwordResetForm.get('new_password'), true)
+                "
+                formControlName="new_password"
+                id="new-pwd"
+                placeholder="New Password"
+                type="password"
+              />
+              <small
+                *ngIf="hasError(passwordResetForm.get('new_password'), true)"
+                class="text-danger"
+                >Please Enter New Password</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="single-input-item">
+              <label class="required" for="confirm-pwd">Confirm Password</label>
+              <input
+                [class]="
+                  hasErrorClass(
+                    passwordResetForm.get('confirm_new_password'),
+                    true
+                  )
+                "
+                formControlName="confirm_new_password"
+                id="confirm-pwd"
+                placeholder="Confirm Password"
+                type="password"
+              />
+              <small
+                *ngIf="
+                  hasError(passwordResetForm.get('confirm_new_password'), true)
+                "
+                class="text-danger"
+                >Please Enter Confirm Password</small
+              >
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="single-input-item">
+        <button class="btn btn-sqr">Save Password</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Single Tab Content End -->

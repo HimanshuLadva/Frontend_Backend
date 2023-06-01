@@ -1,0 +1,54 @@
+
+<div class="container">
+    <div class="d-flex justify-content-center align-content-center">
+      <div *ngIf="isLoading">
+        <div class="spinner-border" role="status">  
+            <span class="sr-only" id="loading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- testimonial area start -->
+<section class="testimonial-area section-padding bg-img" *ngIf="!isLoading">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <!-- section title start -->
+              <div class="section-title text-center">
+                  <h2 class="title">testimonials</h2>
+                  <p class="sub-title">What they say</p>
+              </div>
+              <!-- section title start -->
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <div class="testimonial-thumb-wrapper">
+                  <div class="testimonial-thumb-carousel">
+                      <div class="testimonial-thumb" *ngFor="let item of testimonialsList">
+                          <img src={{item?.image_url}} alt="testimonial-thumb">
+                      </div>
+                  </div> 
+              </div> 
+              <div class="testimonial-content-wrapper">
+                  <div class="testimonial-content-carousel">
+                      <div class="testimonial-content" *ngFor="let item of testimonialsList">
+                          <p>{{item?.content}}</p>
+                          <div class="ratings">
+                              <span><i class="fa fa-star-o"></i></span>
+                              <span><i class="fa fa-star-o"></i></span>
+                              <span><i class="fa fa-star-o"></i></span>
+                              <span><i class="fa fa-star-o"></i></span>
+                              <span><i class="fa fa-star-o"></i></span>
+                          </div>
+                          <h5 class="testimonial-author">{{item?.title}}</h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="spacing"></div>
+<!-- testimonial area end -->
+<!-- testimonial area end -->

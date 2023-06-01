@@ -1,0 +1,136 @@
+<aside class="off-canvas-wrapper off-canvas-wrapper-mobile-filter">
+  <div class="off-canvas-overlay"></div>
+  <div class="off-canvas-inner-content">
+    <div class="off-canvas-inner">
+      <!-- mobile menu start -->
+      <div
+        class="mobile-navigation"
+        style="max-height: 100vh; overflow: visible; display: contents"
+      >
+        <!-- <h6>Filters</h6> -->
+        <div class="d-flex justify-content-between mb-n3 mt-2">
+          <!-- <button class="border btn btn-primary p-2" (click)="closeFilter()">
+            Close Filter
+          </button> -->
+          <!-- <button class="border btn btn-primary p-2" (click)="emitEvent()">
+            Apply Filter
+          </button> -->
+        </div>
+        <!-- mobile menu navigation start -->
+        <nav>
+          <ul class="mobile-menu">
+            <li class="menu-item-has-children" *ngIf="categoryList?.length > 0">
+              <span class="menu-expand" id="CATE_ID"><i></i></span>
+              <a class="C_P text-primary w-100" (click)="openMenu('CATE_ID')"
+                >categories</a
+              >
+              <ul class="dropdown" style="display: none">
+                <li *ngFor="let category of categoryList; let i = index">
+                  <div class="custom-control custom-checkbox mb-1">
+                    <input
+                      (change)="handleCategoryChange(category.id)"
+                      [checked]="categoryId == category.id"
+                      [id]="'CATE_MOBILE_' + category.id"
+                      class="custom-control-input"
+                      name="category"
+                      type="checkbox"
+                    />
+                    <label
+                      [for]="'CATE_MOBILE_' + category.id"
+                      class="custom-control-label pl-0"
+                      >{{ category.name | titlecase }}</label
+                    >
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span
+                style="font-size: 20px; font-weight: bold"
+                class="text-primary"
+                >Price</span
+              >
+              <app-price-range
+                [ceil]="ceil"
+                [floor]="floor"
+                (priceChange)="priceChange.emit($event)"
+              ></app-price-range>
+            </li>
+            <ng-container
+              *ngFor="let attribute of filterList?.filterable_attributes"
+            >
+              <li
+                class="menu-item-has-children shadow-sm mb-2 bg-white rounded"
+                *ngIf="attribute.options?.length > 0"
+              >
+                <span class="menu-expand" [id]="'PLUS_' + attribute.id"
+                  ><i></i
+                ></span>
+                <a
+                  class="C_P text-primary w-100"
+                  (click)="openMenu('PLUS_' + attribute.id)"
+                  style="
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #222222;
+                    text-transform: capitalize;
+                    line-height: 18px;
+                    position: relative;
+                    display: inline-block;
+                    padding: 10px 0;
+                  "
+                  >{{ attribute.admin_name }}</a
+                >
+                <ul class="dropdown" style="display: none; margin-top: 15px">
+                  <li *ngFor="let option of attribute.options; let i = index">
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input
+                        (click)="
+                          handleAttributeClick(attribute.code, option.id)
+                        "
+                        [checked]="isSelected(option.id)"
+                        [id]="'FA_MOBILE' + attribute.id + '_' + option.id"
+                        class="custom-control-input"
+                        name="category"
+                        type="checkbox"
+                      />
+                      <label
+                        [for]="'FA_MOBILE' + attribute.id + '_' + option.id"
+                        class="custom-control-label pl-1"
+                        style="font-size: 15px"
+                        >{{ option.label }}</label
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ng-container>
+          </ul>
+        </nav>
+
+        <!-- mobile menu navigation end -->
+      </div>
+      <div class="mobile-settings">
+        <ul class="nav" style="padding-bottom: 35px">
+          <div style="justify-content: space-between; display: flex">
+            <button
+              (click)="emitEvent()"
+              class="btn btn-sqr"
+              style="width: 45%"
+            >
+              Apply
+            </button>
+            <button
+              (click)="closeFilter()"
+              class="btn btn-sqr"
+              style="width: 45%"
+            >
+              Close
+            </button>
+          </div>
+        </ul>
+      </div>
+      <!-- mobile menu end -->
+    </div>
+  </div>
+</aside>

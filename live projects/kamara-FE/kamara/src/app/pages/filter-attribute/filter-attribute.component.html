@@ -1,0 +1,23 @@
+<div *ngIf="attribute.options?.length>0" class="sidebar-single">
+  <h5 class="sidebar-title">{{attribute.admin_name}}</h5>
+  <div class="sidebar-body">
+    <ul class="checkbox-container categories-list">
+      <ng-container *ngFor="let option of attribute.options;let i=index">
+        <li *ngIf="i<showCount">
+          <div class="custom-control custom-checkbox">
+            <input (click)="handleAttributeClick(option.id)" [checked]="isSelected(option.id)"
+                   [id]="'FA'+attribute.id+'_'+option.id"
+                   class="custom-control-input"
+                   type="checkbox">
+            <label [for]="'FA'+attribute.id+'_'+option.id" class="custom-control-label">{{option.label}}</label>
+          </div>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="DEFAULT_SHOW_COUNT<attribute.options?.length">
+        <li (click)="showMore()" *ngIf="showCount!=attribute.options?.length" class="C_P">show more</li>
+        <li (click)="showMore(true)" *ngIf="showCount==attribute.options?.length" class="C_P">show less</li>
+      </ng-container>
+
+    </ul>
+  </div>
+</div>

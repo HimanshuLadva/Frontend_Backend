@@ -1,0 +1,86 @@
+<!-- product item start -->
+<div class="product-item">
+  <figure class="product-thumb">
+    <a href="#" [routerLink]="[RouteConfig.productDetail, product.url_key]">
+      <img
+        [src]="product.base_image.original_image_url"
+        alt="product"
+        class="pri-img"
+      />
+      <img
+        [src]="product.base_image.original_image_url"
+        alt="product"
+        class="sec-img"
+      />
+    </a>
+    <div class="product-badge d-none">
+      <div class="product-label new">
+        <span>new</span>
+      </div>
+      <div class="product-label discount">
+        <span>10%</span>
+      </div>
+    </div>
+    <div class="button-group">
+      <ng-container *ngIf="authService.isUserLogin">
+        <a
+          href="#"
+          (click)="addToWishlist(product.id)"
+          class="C_P"
+          data-placement="left"
+          data-toggle="tooltip"
+          title="Add to wishlist"
+          ><i class="pe-7s-like"></i
+        ></a>
+      </ng-container>
+      <a href="#" (click)="showQuickViewModal()" class="d-none"
+        ><span
+          class="C_P"
+          data-placement="left"
+          data-toggle="tooltip"
+          title="Quick View"
+          ><i class="pe-7s-search"></i></span
+      ></a>
+    </div>
+    <div class="cart-hover">
+      <button
+        (click)="addToCart()"
+        *ngIf="product.in_stock"
+        class="btn btn-cart d-none"
+      >
+        add to cart
+      </button>
+    </div>
+  </figure>
+  <div class="product-caption text-center">
+    <div class="product-identity d-none">
+      <p class="manufacturer-name">
+        <a href="#" [routerLink]="[RouteConfig.productDetail, product.url_key]">Gold</a>
+      </p>
+    </div>
+    <ul class="color-categories d-none">
+      <li>
+        <a class="c-lightblue" href="#" title="LightSteelblue"></a>
+      </li>
+      <li>
+        <a class="c-darktan" href="#" title="Darktan"></a>
+      </li>
+      <li>
+        <a class="c-grey" href="#" title="Grey"></a>
+      </li>
+      <li>
+        <a class="c-brown" href="#" title="Brown"></a>
+      </li>
+    </ul>
+    <h6 class="product-name">
+      <a href="#" [routerLink]="[RouteConfig.productDetail, product.url_key]">{{
+        product.name | trim: 50
+      }}</a>
+    </h6>
+    <div class="price-box">
+      <span class="price-regular">{{ product?.formated_price }}</span>
+      <!--      <span class="price-old"><del>$70.00</del></span>-->
+    </div>
+  </div>
+</div>
+<!-- product item end -->

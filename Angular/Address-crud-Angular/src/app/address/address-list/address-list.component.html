@@ -1,0 +1,13 @@
+<h1>Billing Address</h1>
+<button type="submit" (click)="addAddress()">Add Address</button>
+
+<div>
+    <ul *ngFor="let item of addressList">
+    <li>{{item.fname}} {{item.lname}}</li>
+    <li>City: {{item.town}}</li>
+    <li>State: {{item.state}}</li>
+    <li>Post Code: {{item.postcode}}</li>
+    <li>Country: {{item.country}}</li>
+    <li><button (click)="onEdit(item.id)">Edit Address</button><button (click)="onDelete(item.id)">Delete Address</button></li>
+</ul>
+</div>

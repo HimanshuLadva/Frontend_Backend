@@ -1,0 +1,20 @@
+div {
+    a {
+        img {
+            width: 100%;
+        }
+    }
+}
+.image {
+    width: 524px;
+    z-index: 0;
+}
+.img-title {
+    background-color: rgba(0,0,0,.6);
+    z-index: 1;
+    text-align: center;
+    margin-top: -46px;
+    color: yellow;
+    font-size: 29px;
+    font-weight: 900;
+}

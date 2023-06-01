@@ -1,0 +1,32 @@
+<!-- brand logo area start -->
+<div class="brand-logo" *ngIf="!loading">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="slick-row-10 slick-arrow-style" #divRef>
+          <!-- single brand start -->
+          <div
+            class="policy-item shadow my-2 py-4"
+            *ngFor="let showcase of policyList"
+          >
+            <div class="d-flex justify-content-center policy-icon">
+              <img
+                [src]="showcase?.image_url"
+                class="img-fluid"
+                [alt]="showcase.title"
+              />
+            </div>
+            <div
+              class="policy-content text-center font-size-policy"
+              [innerHTML]="showcase?.content"
+            >
+              <!--              <p>100% Certified Jewellery</p>-->
+            </div>
+          </div>
+          <!-- single brand end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- brand logo area end -->

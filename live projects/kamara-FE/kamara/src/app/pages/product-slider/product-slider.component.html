@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="d-flex justify-content-center align-content-center">
+    <div *ngIf="loading">
+      <div class="spinner-border" role="status">  
+          <span class="sr-only" id="loading"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- product area start -->
+<section *ngIf="!loading && ProductList.length!=0" class="product-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- section title start -->
+        <div class="section-title text-center">
+          <h2 class="title">{{ title }}</h2>
+          <p class="sub-title">{{ subTitle }}</p>
+        </div>
+        <!-- section title start -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="product-container">
+          <!-- product tab menu start -->
+          <div class="product-tab-menu" *ngIf="!hideCategoryFilter">
+            <ul class="nav justify-content-center">
+              <li
+                (click)="loadCategoryWiseProduct(ROOT_CATEGORY_ID)"
+                class="C_P font-16-px"
+                [class.text-primary]="selectedCategoryId == ROOT_CATEGORY_ID"
+              >
+                All
+              </li>
+              <li
+                (click)="loadCategoryWiseProduct(category.id)"
+                *ngFor="let category of CategoryList"
+                class="C_P font-16-px"
+                [class.text-primary]="selectedCategoryId == category.id"
+              >
+                {{ category.name }}
+              </li>
+            </ul>
+          </div>
+          <!-- product tab menu end -->
+
+          <!-- product tab content start -->
+          <div class="tab-content">
+            <div *ngIf="!smallLoading" class="tab-pane fade show active">
+              <div
+                #divRef
+                class="product-carousel-4 slick-row-10 slick-arrow-style"
+              >
+                <app-one-slider-product
+                  *ngFor="let product of ProductList"
+                  [product]="product"
+                ></app-one-slider-product>
+              </div>
+            </div>
+          </div>
+          <!-- product tab content end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="spacing"></div>
+<!-- product area end -->

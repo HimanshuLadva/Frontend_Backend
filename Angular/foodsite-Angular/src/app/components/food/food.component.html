@@ -1,0 +1,112 @@
+<div class="loading" *ngIf="isLoading">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div> 
+    <div class="dot"></div>
+</div>
+<div class="ad-rm-msg" *ngIf="wishMsg" [ngClass]="{'bg-success': isProductInWish, 'bg-danger': !isProductInWish}">
+    <label class="alert-message">
+        <strong>Product</strong>  {{message[+(!isProductInWish)]}} wishlist successfully.
+    </label>
+</div>
+<div class="ad-rm-msg" *ngIf="cartMsg" [ngClass]="{'bg-success': isProductInCart, 'bg-danger': !isProductInCart}">
+    <label class="alert-message">
+        <strong>Product</strong> {{message[+(!isProductInCart)]}} cart successfully
+    </label>
+</div>
+
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-center mt-3 search-field">
+        <input type="text" #box class="search-box" placeholder="Search Food..." value="{{search}}" pattern="[A-Za-z]"
+            (keydown.enter)="searchInput(box)">
+        <select name="filter" #select class="select-box" (change)="filterProduct(select)">
+            <option value="" default>--Sort--</option>
+            <option value="price">Price: Low to High</option>
+            <option value="rprice">Price: Hight to Low</option>
+            <option value="rate">Rate: Low to High</option>
+            <option value="rrate">Rate: Hight to Low</option>
+        </select>
+        <select name="filter" #select class="select-box" (change)="itemPerPage($event)">
+            <option value="" [selected]="productPerPage">item-per-page</option>
+            <option *ngFor="let item of productPerPageArr">
+                {{item}}
+            </option>
+        </select>
+        <span (click)="changeView('list')" [ngClass]="{'active':viewOfPage=='list','inactive':viewOfPage=='grid'}"><i class="fa-sharp fa-solid fa-list"></i></span>
+        <span (click)="changeView('grid')" [ngClass]="{'inactive':viewOfPage=='list','active':viewOfPage=='grid'}"><i class="fa-solid fa-square"></i></span>
+    </div>
+</div> 
+
+<div class="container v-list" *ngIf="viewOfPage=='list' && !isLoading">
+    <div class="grid">
+        <div class="text-center row">
+            <div *ngFor="let item of listOfFood | paginate: { itemsPerPage: productPerPage, currentPage: page, totalItems: total }; let i = index;" class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 d-flex flex-row">
+                <div class="rate">
+                    <div class="rating">
+                        {{item.rate}}
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="food">
+                    <div class="wc">
+                        <a><i class="fa-solid fa-heart" (click)="addToWishList(item.id)" *ngIf="item?.isInWishList"></i></a>
+                        <a><i class="fa-regular fa-heart" (click)="addToWishList(item.id)" *ngIf="!item?.isInWishList"></i></a>
+                        <a><i class="bx bxs-cart" (click)="addToCartList(item.id)" *ngIf="item?.isInCartList"></i></a>
+                        <a><i class="bx bx-cart" (click)="addToCartList(item.id)" *ngIf="!item?.isInCartList"></i></a>
+                    </div> 
+                    <a routerLink="{{item.id}}"><img  src={{item.img}} alt="No image found"
+                            onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'"></a>
+                </div>
+                <!-- <div>
+                    <a routerLink="{{item.id}}"><img src={{item?.img}} alt="No image found"  onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'"></a>
+                </div> -->
+                <ul class="cart-detail" routerLink="{{item.id}}">
+                    <li routerLink="{{item.id}}">{{item?.name}}</li>
+                    <li routerLink="{{item.id}}">{{item?.dsc}}</li>
+                    <li routerLink="{{item.id}}"><i class="fa-solid fa-location-dot"></i> {{item?.country}}</li>
+                    <li routerLink="{{item.id}}">${{item?.price}}</li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container v-grid" *ngIf="viewOfPage=='grid'&& !isLoading">
+    <div class="d-flex justify-content-around">
+        <div class="text-center grid-p">
+            <div class="data-image"
+                *ngFor="let item of listOfFood | paginate: { itemsPerPage: productPerPage, currentPage: page, totalItems: total }; let i = index;">
+                <div class="rate">
+                    <div class="rating">
+                        {{item.rate}}
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="food">
+                    <div class="wc">
+                        <a><i class="fa-solid fa-heart" (click)="addToWishList(item.id)" *ngIf="item?.isInWishList"></i></a>
+                        <a><i class="fa-regular fa-heart" (click)="addToWishList(item.id)" *ngIf="!item?.isInWishList"></i></a>
+                        <a><i class="bx bxs-cart" (click)="addToCartList(item.id)" *ngIf="item?.isInCartList"></i></a>
+                        <a><i class="bx bx-cart" (click)="addToCartList(item.id)" *ngIf="!item?.isInCartList"></i></a>
+                    </div> 
+                    <a routerLink="{{item.id}}"><img  src={{item.img}} alt="No image found"
+                            onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'"></a>
+                </div>
+                
+                <ul routerLink="{{item.id}}">
+                    <li routerLink="{{item.id}}">{{item?.name}}</li>
+                    <li routerLink="{{item.id}}">{{item?.dsc}}</li>
+                    <li routerLink="{{item.id}}"><i class="fa-solid fa-location-dot"></i>  {{item?.country}}</li>
+                    <li routerLink="{{item.id}}">${{item?.price}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="pagination d-flex justify-content-end mt-1">
+        <pagination-controls (pageChange)="pageChangeEvent($event)" [routerLink]="['menu/',slug]" [queryParams]="{page:page}"></pagination-controls>
+    </div>
+</div>

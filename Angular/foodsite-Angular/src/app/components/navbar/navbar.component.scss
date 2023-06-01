@@ -1,0 +1,35 @@
+.notification {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #221c36;
+}
+.wish {
+    top: 2px;
+    right: 50px;
+}
+.cart {
+    top: 2px;
+    right: 19px;
+}
+
+.mobile-v {
+    display: none;
+}
+
+.cawi {
+    display: flex;
+}
+@media only screen and (max-width:991px) {
+    .cawi {
+        display: none;
+    }
+    .mobile-v {
+        display: block;
+    }
+}

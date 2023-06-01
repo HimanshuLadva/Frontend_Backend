@@ -1,0 +1,47 @@
+
+<div class="container">
+    <div class="d-flex justify-content-center align-content-center">
+      <div *ngIf="isloading">
+        <div class="spinner-border" role="status">  
+            <span class="sr-only" id="loading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- latest blog area start -->
+<section class="latest-blog-area section-padding pt-0" *ngIf="!isloading">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <!-- section title start -->
+              <div class="section-title text-center">
+                  <h2 class="title">latest blogs</h2>
+                  <p class="sub-title">There are latest blog posts</p>
+              </div>
+              <!-- section title start -->
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <div class="blog-carousel-active slick-row-10 slick-arrow-style">
+                  <!-- blog post item start -->
+                  <div class="blog-post-item" *ngFor="let blogData of blogList">
+                      <figure class="blog-thumb" (click)="navigateToDetailPage(blogData.id)">
+                          <a href="#">
+                              <img src={{blogData?.image_url}} alt="blog image">
+                          </a>
+                      </figure>
+                      <div class="blog-content">
+                          <h5 class="blog-title" (click)="navigateToDetailPage(blogData.id)">
+                              <a href="#">{{blogData?.title}}</a>
+                          </h5>
+                      </div>
+                  </div>
+                  <!-- blog post item end -->
+              </div>  
+          </div>
+      </div>
+  </div>
+</section>
+<div class="spacing"></div>
+<!-- latest blog area end -->

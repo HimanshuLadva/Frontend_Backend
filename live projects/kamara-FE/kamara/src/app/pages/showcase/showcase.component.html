@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="d-flex justify-content-center align-content-center">
+    <div *ngIf="loading">
+      <div class="spinner-border" role="status">  
+          <span class="sr-only" id="loading"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- brand logo area start -->
+<div class="brand-logo section-padding pt-0" *ngIf="!loading">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="brand-logo-carousel slick-row-10 slick-arrow-style" #divRef>
+          <!-- single brand start -->
+          <div class="policy-item" *ngFor="let showcase of showcaseList">
+            <div class="d-flex justify-content-center policy-icon">
+              <img
+                [src]="showcase?.image_url"
+                class="img-fluid"
+                [alt]="showcase.title"
+              />
+            </div>
+            <div
+              class="policy-content text-center"
+              [innerHTML]="showcase?.content"
+            ></div>
+          </div>
+          <!-- single brand end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="spacing"></div>
+<!-- brand logo area end -->
+
+<!-- service policy area start -->
+<!-- <div class="service-policy section-padding" *ngIf="!loading">
+  <div class="container">
+    <div class="row mtn-25">
+      <div class="col-sm-6 col-lg-3" *ngFor="let showcase of showcaseList">
+        <div class="policy-item" style="display: block">
+          <div
+            class="policy-icon"
+            style="justify-content: center; display: flex"
+          >
+            <img
+              [src]="showcase?.image_url"
+              class="img-fluid"
+              [alt]="showcase.title"
+            />
+          </div>
+          <div
+            class="policy-content"
+            style="display: flex; justify-content: center"
+            [innerHTML]="showcase?.content"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr /> -->
+<!-- service policy area end -->

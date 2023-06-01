@@ -1,0 +1,33 @@
+.input_placeholder_color_fff::placeholder {
+  color: #fff !important;
+}
+form.header-search-box input {
+  border-radius: 0 !important;
+}
+.left_75 {
+  left: 75% !important;
+}
+.w_100_vw {
+  width: 100vw !important;
+}
+.sticky.is-sticky .left_75 {
+  left: 50% !important;
+}
+
+.manufacturer-name a {
+  font-size: 16px;
+  line-height: 1;
+  color: #000000;
+  text-transform: capitalize;
+}
+
+.w_15 {
+  max-width: 15%;
+}
+
+.w_10 {
+  max-width: 10%;
+}
+.h_100 {
+  height: 100px;
+}

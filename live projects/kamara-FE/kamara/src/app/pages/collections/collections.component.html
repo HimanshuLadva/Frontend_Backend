@@ -1,0 +1,41 @@
+
+<div class="container">
+  <div class="d-flex justify-content-center align-content-center">
+    <div *ngIf="loading">
+      <div class="spinner-border" role="status">  
+          <span class="sr-only" id="loading"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- testimonial area start -->
+<section *ngIf="!loading" class="testimonial-area section-padding mt-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- section title start -->
+        <div class="section-title text-center">
+          <h2 class="title">Collections</h2>
+        </div>
+        <!-- section title start -->
+      </div>
+    </div>
+    <div class="row">
+      <div
+        *ngFor="let collection of collectionList; let i = index"
+        class="col-md-4 mb-4"
+      >
+        <div
+          class="bg-img h_100 position-relative"
+          style="background-image: url('{{ collection?.image_url }}');"
+        >
+          <span class="ml-3 mt-2 position-absolute text-white d-none">{{
+            collection?.content
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="spacing"></div>
+<!-- testimonial area end -->

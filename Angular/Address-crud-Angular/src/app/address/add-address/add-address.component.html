@@ -1,0 +1,60 @@
+<form [formGroup]="form" (ngSubmit)="submitData()">
+  <label for="fname">FirstName</label><br>
+  <input type="text" id="fname" formControlName="fname">
+  <br>
+  <span *ngIf="fname && fname.invalid && fname.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="lname">LastName</label><br>
+  <input type="text" id="lname" formControlName="lname">
+  <br>
+  <span *ngIf="lname && lname.invalid && lname.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="companyName">Company Name</label><br>
+  <input type="text" id="companyName" formControlName="companyName">
+  <br>
+  <span *ngIf="companyName && companyName.invalid && companyName.touched" style="color: red;">This is invalid
+    field</span>
+  <br>
+
+  <label for="country">Country</label><br>
+  <input type="text" id="country" formControlName="country">
+  <br>
+  <span *ngIf="country && country.invalid && country.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="streetAdress">Street Address</label><br>
+  <input type="text" id="streetAdress" formControlName="streetAdress">
+  <br>
+  <span *ngIf="streetAdress && streetAdress.invalid && streetAdress.touched" style="color: red;">This is invalid
+    field</span>
+  <br>
+
+  <label for="postcode">postcode/zip</label><br>
+  <input type="number" id="postcode" formControlName="postcode">
+  <br>
+  <span *ngIf="postcode && postcode.invalid && postcode.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="town">Town/City</label><br>
+  <input type="text" id="town" formControlName="town">
+  <br>
+  <span *ngIf="town && town.invalid && town.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="state">State</label><br>
+  <input type="text" id="state" formControlName="state">
+  <br>
+  <span *ngIf="state && state.invalid && state.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <label for="phone">Phone</label><br>
+  <input type="number" id="phone" formControlName="phone">
+  <br>
+  <span *ngIf="phone && phone.invalid && phone.touched" style="color: red;">This is invalid field</span>
+  <br>
+
+  <button type="submit" [disabled]="form.invalid">submit data</button>
+  <button type="submit" (click)="moveToAddressList()">Cancle</button>
+</form>

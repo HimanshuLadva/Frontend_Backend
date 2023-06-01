@@ -1,0 +1,31 @@
+<div class="container menu">
+    <div class="grid">
+        <div class="row" *ngIf="foodList.length==0">
+            <div class="image text-center">
+                <img src="assets/photos/empty-cart.png" alt="Not found" class="logo">
+            </div>
+            <div class="text-center">
+                <h2>Your wishlist empty</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of foodList" class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 d-flex flex-row">
+                <div>
+                    <a [routerLink]="['/menu','our-foods', item?.id]"><img src={{item.img}} alt="No image found"
+                            onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'"></a>
+                </div>
+                <div>
+                    <ul class="wish-detail">
+                        <li [routerLink]="['/menu','our-foods', item?.id]">{{item?.name}}</li>
+                        <li>{{item?.dsc}}</li>
+                        <li>{{item?.country}}</li>
+                        <li>${{item?.price}}</li>
+                        <li>
+                            <button class="btn btn-warning" (click)="deleteFromWish(item.id)">Delete</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

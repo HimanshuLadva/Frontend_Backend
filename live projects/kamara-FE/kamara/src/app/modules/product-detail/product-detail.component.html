@@ -1,0 +1,271 @@
+<!-- page main wrapper start -->
+<app-no-product-found *ngIf="currentProduct==null && isLoading==false"></app-no-product-found>
+<div class="shop-main-wrapper section-padding pb-0" *ngIf="currentProduct!=null">
+  <div class="container">
+    <div class="row">
+      <!-- product details wrapper start -->
+      <div class="col-lg-12 order-1 order-lg-2">
+        <!-- product details inner end -->
+        <div class="product-details-inner">
+          <div class="row">
+            <app-product-detail-image
+              [productImage]="currentProduct?.images"
+              class="col-lg-6"
+            ></app-product-detail-image>
+            <div class="col-lg-6">
+              <div class="product-details-des">
+                <h3 class="product-name">
+                  {{ currentProduct?.name }}
+                </h3>
+                <div class="ratings d-flex mb-4">
+                  <app-rating-stars
+                    [rating]="currentProduct?.reviews?.average_rating"
+                  ></app-rating-stars>
+                  <div class="pro-review">
+                    <span>{{ currentProduct?.reviews?.total }} Reviews</span>
+                  </div>
+                </div>
+                <hr class="product-hr mt-4" *ngIf="auth.isUserLogin" />
+                <div class="py-2 d-flex justify-content-between">
+                  <h6 class="text-uppercase my-auto">Quantity</h6>
+                  <div class="text-dark">
+                    <i
+                      class="fa fa-minus C_P p-1 border border-primary"
+                      [class.C_NA]="quantity < 2"
+                      [class.op-0_5]="quantity < 2"
+                      (click)="quantity > 1 && updateQuantity(-1)"
+                    ></i>
+                    <span class="mx-2 h6">{{ quantity }}</span>
+                    <i
+                      class="fa fa-plus C_P p-1 border border-primary"
+                      (click)="updateQuantity(1)"
+                    ></i>
+                  </div>
+                </div>
+                <hr class="product-hr" *ngIf="auth.isUserLogin" />
+                <app-product-detail-variation-attribute-list
+                  (onAttributeChange)="handleOnAttributeChange($event)"
+                  *ngIf="attributes?.length"
+                  [attributes]="attributes"
+                  [currentProduct]="currentProductForAttribute"
+                ></app-product-detail-variation-attribute-list>
+                <div
+                  *ngIf="currentProduct?.formated_price"
+                  class="
+                    bg-primary
+                    d-flex
+                    justify-content-between
+                    p-3
+                    text-white
+                    mt-4
+                  "
+                  [class.C_P]="currentProduct?.in_stock"
+                  (click)="currentProduct?.in_stock && addToCart()"
+                >
+                  <span class="h4">{{ currentProduct?.formated_price }}</span>
+                  <span *ngIf="!currentProduct?.in_stock" class="h4"
+                    >Out Of Stock</span
+                  >
+                  <span *ngIf="currentProduct?.in_stock" class="h4"
+                    >Add To Cart</span
+                  >
+                </div>
+                <!--         desktop        -->
+                <div class="my-3 d-none d-md-block">
+                  <h3>About The Product</h3>
+                  <div
+                    class="pro-desc text-justify"
+                    [innerHTML]="product?.short_description"
+                  ></div>
+                </div>
+                <div class="my-3 d-none d-md-block">
+                  <h3>Product Details</h3>
+                  <div
+                    class="pro-desc text-justify"
+                    [innerHTML]="product?.description"
+                  ></div>
+                </div>
+                <!--         mobile       -->
+                <app-collapse title="About The Product" class="d-md-none">
+                  <div
+                    class="pro-desc text-justify"
+                    [innerHTML]="product?.short_description"
+                  ></div>
+                </app-collapse>
+                <app-collapse title="Product Details" class="d-md-none">
+                  <div
+                    class="pro-desc text-justify"
+                    [innerHTML]="product?.description"
+                  ></div>
+                </app-collapse>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- product details inner end -->
+
+        <!-- product details reviews start -->
+        <div class="d-none product-details-reviews section-padding pb-0">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-12">
+                <app-collapse title="{{ 'product details' | uppercase }}">
+                  <div class="text-dark overflow-hidden">
+                    <div
+                      class="d-flex justify-content-between border-bottom my-2"
+                    >
+                      <span>Product Code</span>
+                      <span>123456-123465</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between border-bottom my-2"
+                    >
+                      <span>Clarity</span>
+                      <div>
+                        <span class="ml-4">S1</span>
+                        <span class="ml-4">S1</span>
+                        <span class="ml-4">S1</span>
+                        <span class="ml-4">S1</span>
+                        <span class="ml-4">S1</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between border-bottom my-2"
+                    >
+                      <span>Color</span>
+                      <div>
+                        <span class="ml-4">IJ</span>
+                        <span class="ml-4">IJ</span>
+                        <span class="ml-4">IJ</span>
+                        <span class="ml-4">IJ</span>
+                        <span class="ml-4">IJ</span>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between border-bottom my-2"
+                    >
+                      <span>Shape</span>
+                      <div>
+                        <span class="ml-4">Round</span>
+                        <span class="ml-4">Round</span>
+                        <span class="ml-4">Round</span>
+                        <span class="ml-4">Round</span>
+                        <span class="ml-4">Round</span>
+                      </div>
+                    </div>
+                  </div>
+                </app-collapse>
+              </div>
+              <div class="col-md-4 d-none d-md-block">
+                <img
+                  src="assets/theme/img/product/product-1.jpg"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- product details reviews end -->
+      </div>
+      <!-- product details wrapper end -->
+    </div>
+  </div>
+</div>
+<!-- page main wrapper end -->
+<hr class="w-100 border-top d-none" />
+<app-showcase></app-showcase>
+<!-- <app-product-detail-policy-slider></app-product-detail-policy-slider> -->
+<hr class="w-100 border-top d-none" />
+<div class="shop-main-wrapper d-none">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <img
+          src="assets/theme/img/product/product-1.jpg"
+          alt="Product"
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-lg-7">
+        <div class="row">
+          <div class="col-12 my-2">
+            <h3 class="text-uppercase mb-3">description & details</h3>
+            <p class="text-justify">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+              aliquid asperiores at atque autem beatae delectus ea eius esse
+              explicabo ipsam labore nam nulla officia officiis possimus
+              praesentium ratione, ullam.
+            </p>
+          </div>
+          <div class="col-md-6 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+          <div class="col-md-6 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+          <div class="col-md-6 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+          <div class="col-md-6 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+          <div class="col-12 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+          <div class="col-12 my-2">
+            <h6>Stone 1 :</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- <div class="row" *ngIf="product?.id">
+    <div class="col-12 col-md-6">
+      <app-product-slider
+        class="more-padding"
+        title="Similar Designs"
+        hideCategoryFilter="true"
+        [type]="productSliderType.similar_design_products"
+        [productId]="product?.id"
+      ></app-product-slider>
+    </div>
+    <div class="col-12 col-md-6">
+      <app-product-slider
+        class="more-padding"
+        title="Complete The Look"
+        hideCategoryFilter="true"
+        [type]="productSliderType.complete_the_look_products"
+        [productId]="product?.id"
+      ></app-product-slider>
+    </div>
+  </div> -->
+  <div class="row" *ngIf="product?.id">
+    <div class="col-12">
+      <app-product-slider
+        class="more-padding"
+        title="Similar Designs"
+        hideCategoryFilter="true"
+        [type]="productSliderType.similar_design_products"
+        [productId]="product?.id"
+      ></app-product-slider>
+    </div>
+    <div class="col-12">
+      <app-product-slider
+        class="more-padding"
+        title="Complete The Look"
+        hideCategoryFilter="true"
+        [type]="productSliderType.complete_the_look_products"
+        [productId]="product?.id"
+      ></app-product-slider>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<ng-container *ngFor="let struct of homePageStructure" [ngSwitch]="struct">
+  <app-home-slider *ngSwitchCase="'slider'"></app-home-slider>
+  <app-showcase *ngSwitchCase="'showcase-icon'"></app-showcase>
+  <app-product-slider
+    title="Featured"
+    *ngSwitchCase="'featured'"
+    [type]="productSliderType.featured" 
+  ></app-product-slider>
+  <app-collections *ngSwitchCase="'collection'"></app-collections>
+  <app-one-image-poster *ngSwitchCase="'1-image'"></app-one-image-poster>
+  <app-two-image-poster *ngSwitchCase="'2-images'"></app-two-image-poster>
+  <app-product-slider
+    title="Best Seller"
+    *ngSwitchCase="'best-seller'"
+    [type]="productSliderType.best_seller"
+  ></app-product-slider>
+  <app-testimonials *ngSwitchCase="'testimonial'"></app-testimonials>
+  <app-blogs *ngSwitchCase="'blog'"></app-blogs>
+  <app-reviews *ngSwitchCase="'reviews'"></app-reviews>
+</ng-container>
+<!--<app-follow-us></app-follow-us>-->

@@ -1,0 +1,39 @@
+<h1>Create New Team</h1>
+<!-- 
+<div>
+    <ul *ngFor="let item of employeeArray">
+        <li> 
+        <label for="employees">Employee {{item.id}}: </label>
+         <input type="text">&nbsp;
+         <button (click)="deleteEmployeeForm(item.id)">Delete</button>
+        </li>
+     </ul>
+</div> -->
+
+<form [formGroup]="teamForm" (ngSubmit)="submitData()">
+    <label>Team Name: </label>
+    <input type="text" id="teamName" formControlName="teamName"><br>
+    <br>
+    <span *ngIf="teamName && teamName.invalid && teamName.touched" style="color: red;">This is invalid field</span>
+    <br>
+
+
+    <h2>Employees in team</h2>
+    <div formArrayName="employees">
+        <ul *ngFor="let item of teamForm.get('employees')['controls']; let i = index" formGroupName="{{i}}">
+            <li>
+                <label>Employee {{i+1}}: </label>
+                <input type="text" id="employee" formControlName="employee">&nbsp;
+                <button (click)="removeEmployee(i)">Delete</button>
+                <br>
+                <span *ngIf="employee && employee.invalid && employee.touched" style="color: red;">This is invalid
+                    field</span>
+                <br>
+            </li>
+        </ul>
+        <!-- raised issue  -->
+        <a (click)="addEmployee()">Add</a>
+    </div>
+    <br>
+    <button type="submit" [disabled]="teamForm.invalid">Submit Data</button>
+</form>

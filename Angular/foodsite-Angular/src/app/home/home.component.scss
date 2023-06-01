@@ -1,0 +1,269 @@
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+}
+
+p {
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+ }
+.recommended,.resent {
+  .wc {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    .fa-regular, .fa-solid {
+        margin-right: 5px;
+        margin-top: 4px;
+        margin-left: -7px;
+    }
+    i {
+        font-size: 35px;
+      }
+      a {
+        margin-top: 2px;
+        color: rgb(255, 193, 7);
+    }
+    a:first-child {
+      margin-left:35px;
+    }
+  }
+  .food:hover {
+  .wc {
+      display: block;
+  }
+  }
+}
+
+.rate {
+  .rating {
+    position: absolute;
+    display: block;
+    height: auto;
+    margin-top: 158px;
+    margin-left: 20px;
+    font-size: 23px;
+    color: rgb(68, 66, 66);
+    background: rgb(255,193,7);
+    padding:4px;
+    width: 66px;
+    border-radius:0px 0px 0px 25px;
+    // width: 131%;
+  }
+}
+.grid-p {
+    display: grid;
+    grid-template-columns: 218px 218px 218px 218px 218px;
+    column-gap: 53px;
+    
+    div {
+      border-radius: 20px;
+    }
+
+    .wc {
+      display: none;
+      position: absolute;
+      cursor: pointer;
+      .fa-regular, .fa-solid {
+          margin-right: 5px;
+          margin-top: 4px;
+          margin-left: -7px;
+      }
+      i {
+          font-size: 35px;
+        }
+        a {
+          margin-top: 2px;
+          color: rgb(255,193,7);
+      }
+      a:first-child {
+        margin-left:28px;
+      }
+    }
+    .food:hover {
+    .wc {
+        display: block;
+    }
+    }
+}
+
+// carousel
+.carousel {
+   height: 500px;
+   width: 97%;
+   margin: auto;
+   img {
+     height: 500px;
+   }
+}
+.container {
+  margin-bottom: 20px;
+   .header {
+    border-bottom: 2px solid black; 
+    font-size: 25px;
+    font-weight: bold;
+    // margin: auto;
+   }
+  }
+  .recommended {
+    #recommended {
+      margin-left: 0;
+      font-size: 25px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    }
+
+    p {
+     font-size: 20px;
+     text-align: center;
+     font-weight: 500;
+    }
+  }
+
+.slide-container{
+  max-width: 100%;
+  width: 100%;
+  padding: 40px 0;
+  // min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.card{
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255,193,7);
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(255,193,7);
+}
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgb(255,193,7);
+}
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: rgb(255,193,7);
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  background: #265DF2;
+}
+
+.swiper-navBtn{
+  color: rgb(255,193,7);
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: rgb(247, 189, 13);
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+
+}
+.swiper-pagination-bullet{
+  background-color: rgb(255,193,7);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: rgb(255,193,7);
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content{
+    margin: 0 10px;
+  }
+  .swiper-navBtn{
+    display: none;
+  }
+}
+
+// notification
+.ad-rm-msg {
+    z-index: 5;
+    border-radius: 3px;
+    line-height:30px;
+    position: fixed;
+    top: 10; right: 0;
+    display: block;
+    width:30%;
+    padding: 12px;
+    box-sizing: border-box;
+    color: white;
+    margin-right: 20px;
+    box-shadow: 0px 10px 50px rgba(0,0,0,.6);
+    // background: rgb(29, 145, 29);
+  }

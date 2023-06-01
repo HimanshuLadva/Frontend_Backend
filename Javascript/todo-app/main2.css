@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background: #3d419e;
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 52px;
+  color: white;
+}
+
+.list-input {
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-input input[type=text] {
+  width: 38%;
+  padding: 10px 0px 10px 13px;
+  border-radius: 17px;
+  height: 26px;
+  font-size: 20px;
+}
+.list-input .btn {
+  font-size: 29px;
+  margin-left: 11px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* reponsive navbar */
+
+
+.holding {
+  background-color: #343558;
+  color: white;
+}
+
+.alert_msg {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 23px;
+}
+
+.todo-list {
+  margin-top: -5px;
+  height: 100vh;
+  z-index: 0;
+}
+
+.todo-list .todo-list-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 50px;
+  background: #5256bc;
+  box-shadow: 20px 20px 60px #343786, -20px -20px 60px #464bb6;
+  width: 50%;
+  margin: auto;
+}
+.todo-list .todo-list-inner .item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  text-align: center;
+  list-style-type: none;
+  width: 95%;
+  margin: 19px;
+  border-bottom: 2px solid white;
+}
+.todo-list .todo-list-inner .item input[type=text] {
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+}
+.todo-list .todo-list-inner .item input[type=checkbox] {
+  width: 33px;
+  height: 41px;
+  cursor: pointer;
+}
+.todo-list .todo-list-inner .item .list-btn {
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 100;
+  padding: 12px 13px;
+  cursor: pointer;
+}
+
+.hidden {
+  /* opacity: 0; */
+  /* display: none */
+  /* display: none; */
+  visibility: hidden;
+}
+
+.hidden1 {
+  display:none;
+}
+.show {
+  display: block;
+}/*# sourceMappingURL=main.css.map */

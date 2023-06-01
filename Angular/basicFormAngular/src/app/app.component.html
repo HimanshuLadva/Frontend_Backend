@@ -1,0 +1,179 @@
+<h1>{{ title }}</h1>
+<!-- <h1>Directives</h1>
+<h1 appRedEl>Directives</h1>
+<h1 appRedEl>{{ title }}</h1>
+<h1 appChangeEl>{{ title }}</h1> -->
+
+<!-- <h1>Reactive form with validation</h1>
+<form [formGroup]="loginReactiveForm" (ngSubmit)="submitData()">
+  <input type="text" placeholder="Enter Name" formControlName="user">
+  <br>
+     <span *ngIf="user && user.invalid && user.touched" style="color: red;">This is invalid field</span>
+  <br>
+  <input type="email" placeholder="Enter email" formControlName="email">
+  <br>
+     <span *ngIf="email && email.invalid && email.touched" style="color: red;">This is invalid field</span>
+  <br>
+  <input type="password" placeholder="Enter password" formControlName="password">
+  <br>
+     <span *ngIf="password && password.invalid && password.touched" style="color: red;">This is invalid field</span>
+  <br>
+  <button [disabled]="loginReactiveForm.invalid">submit</button>
+</form> -->
+<!-- <h1>Reactive form</h1>
+<form [formGroup]="loginReactiveForm" (ngSubmit)="submitData()">
+  <input type="text" placeholder="Enter Name" formControlName="user">
+  <br><br>
+  <input type="email" placeholder="Enter email" formControlName="email">
+  <br><br>
+  <input type="password" placeholder="Enter password" formControlName="password">
+  <br><br>
+  <button>submit</button>
+</form> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Template driven form include form validtion</h1>
+<form #loginForm="ngForm" (ngSubmit)="loginFormDetail(loginForm.value)">
+    <input type="text" required name="name" placeholder="Enter Name" #name="ngModel" ngModel pattern="[a-zA-Z]*">
+    <br>
+       <span *ngIf="name.invalid && name.touched" style="color: red;">Please Enter valid input</span>
+    <br>
+    <input type="email" required name="email" email placeholder="Enter Email" #email="ngModel" ngModel>
+    <br>
+       <span *ngIf="email.invalid && email.touched" style="color: red;">Please Enter valid input</span>
+    <br>
+    <input type="password" name="password" required minlength="5" placeholder="Enter password" #password="ngModel" ngModel>
+    <br>
+       <span *ngIf="password.invalid && password.touched" style="color: red;">Please Enter valid input</span>
+    <br>
+    <button [disabled]="loginForm.invalid">Login</button>
+</form>
+<button (click)="loginFormDetail(loginForm.value)">OutSide Login</button> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>basic pipe</h1>
+<h1>{{"basicPipe" | lowercase}}</h1>
+<h1>{{today | date}}</h1>
+<h1>{{today | date: 'fullDate'}}</h1>
+<h1>{{ "basicPipe" | slice :3:8 }}</h1>
+<h1>{{ userData | json | uppercase}}</h1>
+<h1>{{ 003.340 | number: '1.2-3'}}</h1>
+<h1>{{ 100 | currency: 'INR'}}</h1>
+<h1>{{"my name is himanshu" | titlecase}}</h1> 
+<h1>Custome pipe</h1>
+<h1>{{ 21 | usdInr:60 }}</h1> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>template reference variable</h1>
+<input type="text" #box>
+<button (click)="getVal(box)">Click Me</button> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Two way binding</h1>
+<input type="text" [(ngModel)]="value">
+<h3>{{value}}</h3> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Send data child to parent component</h1>
+<app-child (updateDataEvent)="receiveDataFromChild($event)" ></app-child>
+<h2>{{data3}}</h2> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Reusable Component</h1>
+<ul *ngFor="let user of userDetails" >
+  <app-user-details [item]="user" ></app-user-details>
+</ul>
+<ul *ngFor="let user of userDetails">
+  <app-user-details2 [item]="user"></app-user-details2>
+</ul> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Pass data to child component</h1>
+<app-child [item]="data" [item2]="data2"></app-child>
+<app-child [item]="data" [item2]="data2"></app-child>
+<button (click)="updateData()">Updata Child Component</button> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h2>Todo App</h2>
+<input type="text" placeholder="Enter your todo" #task class="todo-input">
+<button (click)="makeTodo(task)">Add New task</button>
+<br><br>
+<ul *ngFor="let item of list" class="todo-list">
+    <li>{{item.data}}</li><button (click)="deleteTodo(item.id)">Delete</button>
+</ul> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Angular with material ul</h1>
+<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<div class="example-button-row">
+  <button mat-stroked-button>Basic</button>
+  <button mat-stroked-button color="primary">Primary</button>
+  <button mat-stroked-button color="accent">Accent</button>
+  <button mat-stroked-button color="warn">Warn</button>
+  <button mat-stroked-button disabled>Disabled</button>
+  <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+</div> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <h1>Bootstrap with angular</h1>
+<p>
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+  </ngb-alert>
+</p>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Simple">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <button (click)="toggle()">Toggle</button>
+<h1 *ngIf="display">toggle element</h1> -->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- <form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
+   <input type="text" ngModel name="user" placeholder="Enter the name">
+   <br><br>
+   <input type="text" ngModel name="email" placeholder="Enter the email">
+   <br><br>
+   <input type="text" ngModel name="password" placeholder="Enter the password">
+   <br><br>
+   <button>Register</button>
+</form>
+<ul>
+  <li>{{users.user}}</li>
+  <li>{{users.email}}</li>
+  <li>{{users.password}}</li>
+</ul> -->

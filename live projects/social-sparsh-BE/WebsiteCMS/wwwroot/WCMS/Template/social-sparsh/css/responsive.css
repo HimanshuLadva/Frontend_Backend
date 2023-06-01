@@ -1,0 +1,29 @@
+@media only screen and ( max-width: 1440px){
+	.contact-form-inner{ padding: 10px; }
+}
+
+@media only screen and ( max-width: 1199px){
+	.about-us-items .about-contact{ width: auto; }
+}
+
+@media only screen and ( max-width: 992px){
+	.fotter-item{ margin-top: 20px; }
+}
+
+@media only screen and ( max-width:575px){
+	
+}
+
+@media only screen and ( max-width:575px){
+
+	h1,.h1{ font-size: 32px !important; }
+	h2, .h2{ font-size: 28px !important; }
+	h3, .h3{ font-size: 24px !important; }
+
+	.about-items{ margin-top: 15px; }
+	.contact-form-inner{ padding: 15px; }
+	.about-us-items .about-contact{ position: relative; transform: rotate(0deg); top: 0; left: 0;}
+	.about-us-items{ margin-top: 15px; }
+	.vision-mission-itmes{ margin-top: 10px; }
+
+} 

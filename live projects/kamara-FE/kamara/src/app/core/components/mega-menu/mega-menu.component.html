@@ -1,0 +1,258 @@
+<!-- main menu navbar start -->
+<nav *ngIf="!isMobile" class="desktop-menu">
+  <ul
+    *ngIf="categoryTree?.length > 0"
+    class="justify-content-center header-style-4"
+  >
+    <!--    desktop -->
+    <li *ngFor="let category of categoryTree">
+      <a [routerLink]="[RouteConfig.list, category.slug]" class="text-uppercase" 
+      >{{ category?.name }}
+        <i *ngIf="category?.children?.length > 0" class="fa fa-angle-down"></i
+      ></a>
+      <ul *ngIf="category?.children?.length > 0" class="dropdown">
+        <li *ngFor="let child of category.children">
+          <a [routerLink]="[RouteConfig.list, child.slug]"
+            >{{ child.name }}
+            <i *ngIf="child?.children?.length > 0" class="fa fa-angle-right"></i
+          ></a>
+          <ul *ngIf="child?.children?.length > 0" class="dropdown">
+            <li *ngFor="let subChild of child.children">
+              <a [routerLink]="[RouteConfig.list, subChild.slug]">{{
+                subChild.name
+              }}</a>
+            </li>
+          </ul>
+        </li>
+        <li class="d-none">
+          <a href="#">shop list layout <i class="fa fa-angle-right"></i></a>
+          <ul class="dropdown">
+            <li>
+              <a href="shop-list-left-sidebar.html">shop list left sidebar</a>
+            </li>
+          </ul>
+        </li>
+        <li class="d-none">
+          <a href="#">products details <i class="fa fa-angle-right"></i></a>
+          <ul class="dropdown">
+            <li>
+              <a href="product-details.html">product details</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="d-none">
+      <a href="blog-left-sidebar.html">Blog <i class="fa fa-angle-down"></i></a>
+      <ul class="dropdown">
+        <li>
+          <a href="blog-left-sidebar.html">blog left sidebar</a>
+        </li>
+        <li>
+          <a href="blog-list-left-sidebar.html">blog list left sidebar</a>
+        </li>
+        <li>
+          <a href="blog-right-sidebar.html">blog right sidebar</a>
+        </li>
+        <li>
+          <a href="blog-list-right-sidebar.html">blog list right sidebar</a>
+        </li>
+        <li>
+          <a href="blog-grid-full-width.html">blog grid full width</a>
+        </li>
+        <li>
+          <a href="blog-details.html">blog details</a>
+        </li>
+        <li>
+          <a href="blog-details-left-sidebar.html">blog details left sidebar</a>
+        </li>
+        <li>
+          <a href="blog-details-audio.html">blog details audio</a>
+        </li>
+        <li>
+          <a href="blog-details-video.html">blog details video</a>
+        </li>
+        <li>
+          <a href="blog-details-image.html">blog details image</a>
+        </li>
+      </ul>
+    </li>
+    <li class="d-none"><a href="contact-us.html">Contact us</a></li>
+  </ul>
+</nav>
+<!-- main menu navbar end -->
+<!-- offcanvas mobile menu start -->
+<!-- off-canvas menu start -->
+<aside *ngIf="isMobile" class="off-canvas-wrapper off-canvas-wrapper-mega-menu">
+  <div class="off-canvas-overlay"></div>
+  <div class="off-canvas-inner-content">
+    <div class="btn-close-off-canvas">
+      <i class="pe-7s-close"></i>
+    </div>
+
+    <div class="off-canvas-inner">
+      <app-autocomplete isMobile="true"></app-autocomplete>
+      <!-- mobile menu start -->
+      <div class="mobile-navigation">
+        <!-- mobile menu navigation start -->
+        <nav>
+          <ul *ngIf="categoryTree?.length > 0" class="mobile-menu">
+            <li
+              *ngFor="let category of categoryTree"
+              class="menu-item-has-children shadow-sm mb-2 bg-white rounded"
+            >
+              <span *ngIf="category?.children?.length > 0" class="menu-expand"
+                ><i></i
+              ></span>
+              <a [routerLink]="[RouteConfig.list, category.slug]">{{
+                category?.name
+              }}</a>
+              <ul
+                *ngIf="category?.children?.length > 0"
+                class="dropdown"
+                style="display: none"
+              >
+                <li
+                  *ngFor="let child of category.children"
+                  class="menu-item-has-children"
+                >
+                  <span *ngIf="child?.children?.length > 0" class="menu-expand"
+                    ><i></i
+                  ></span>
+                  <a [routerLink]="[RouteConfig.list, child.slug]">{{
+                    child.name
+                  }}</a>
+                  <ul
+                    *ngIf="child?.children?.length > 0"
+                    class="dropdown"
+                    style="display: none"
+                  >
+                    <li *ngFor="let subChild of child.children">
+                      <a [routerLink]="[RouteConfig.list, subChild.slug]">{{
+                        subChild.name
+                      }}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children d-none">
+                  <span class="menu-expand"><i></i></span>
+                  <a href="#">shop list layout</a>
+                  <ul class="dropdown" style="display: none">
+                    <li>
+                      <a href="shop-list-left-sidebar.html"
+                        >shop list left sidebar</a
+                      >
+                    </li>
+                    <li>
+                      <a href="shop-list-right-sidebar.html"
+                        >shop list right sidebar</a
+                      >
+                    </li>
+                    <li>
+                      <a href="shop-list-full-width.html"
+                        >shop list full width</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children d-none">
+                  <span class="menu-expand"><i></i></span>
+                  <a href="#">products details</a>
+                  <ul class="dropdown" style="display: none">
+                    <li>
+                      <a href="product-details.html">product details</a>
+                    </li>
+                    <li>
+                      <a href="product-details-affiliate.html"
+                        >product details affiliate</a
+                      >
+                    </li>
+                    <li>
+                      <a href="product-details-variable.html"
+                        >product details variable</a
+                      >
+                    </li>
+                    <li>
+                      <a href="product-details-group.html"
+                        >product details group</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- mobile menu navigation end -->
+      </div>
+      <!-- mobile menu end -->
+
+      <div class="mobile-settings">
+        <ul class="nav" style="padding-bottom: 35px">
+          <ng-container *ngIf="authService.isUserGuest">
+            <div style="justify-content: space-between; display: flex">
+              <button
+                [routerLink]="RouteConfig.auth_login"
+                class="btn btn-sqr"
+                style="width: 45%"
+              >
+                Login
+              </button>
+              <button
+                [routerLink]="RouteConfig.auth_register"
+                class="btn btn-sqr"
+                style="width: 45%"
+              >
+                Register
+              </button>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="authService.isUserLogin">
+            <div style="justify-content: space-between; display: flex">
+              <button
+                [routerLink]="RouteConfig.auth_account"
+                class="btn btn-sqr"
+                style="width: 45%"
+              >
+                Profile
+              </button>
+              <button
+                (click)="authService.logout()"
+                class="btn btn-sqr"
+                style="width: 45%"
+              >
+                Log out
+              </button>
+            </div>
+          </ng-container>
+        </ul>
+      </div>
+
+      <!-- offcanvas widget area start -->
+      <div class="d-none offcanvas-widget-area">
+        <div class="off-canvas-contact-widget">
+          <ul>
+            <li>
+              <i class="fa fa-mobile"></i>
+              <a href="#">0123456789</a>
+            </li>
+            <li>
+              <i class="fa fa-envelope-o"></i>
+              <a href="#">demo@example.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="off-canvas-social-widget">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-pinterest-p"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-youtube-play"></i></a>
+        </div>
+      </div>
+      <!-- offcanvas widget area end -->
+    </div>
+  </div>
+</aside>
+<!-- off-canvas menu end -->
+<!-- offcanvas mobile menu end -->

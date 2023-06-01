@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{Meta}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    {{GATagHeader}}
+    {{FacebookPixel}}
+</head>
+
+<body>
+    {{GATagBody}}
+    {{Header}}
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner {{HomeSlider}}">
+            <div class="carousel-item active">
+                <img src="{{SlImg}}" class="d-block w-100" alt="Slider Image 1">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="spad about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12 about-items">
+                    <img src="{{HomeAboutImg1}}" alt="About Image 1" width="100%">
+                    <div class="col-lg-7 col-md-12 col-sm-12 features">
+                        <div class="about-inner-box">
+                            <div class="about-inner-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="about-inner-content">
+                                <h5>{{HomeAboutFeature1}}</h5>
+                                <p>{{HomeAboutFeature1Des}}</p>
+                            </div>
+                        </div>
+                        <div class="about-inner-box">
+                            <div class="about-inner-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="about-inner-content">
+                                <h5>{{HomeAboutFeature2}}</h5>
+                                <p>{{HomeAboutFeature2Des}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 about-items">
+                    <h3>{{HomeAboutHeading}} </h3>
+                    <span class="dg-border mb-2"></span>
+                    <p class="">{{HomeAboutDes1}}</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> {{HomeAboutLine1}}</li>
+                        <li><i class="fas fa-check"></i> {{HomeAboutLine2}}</li>
+                        <li><i class="fas fa-check"></i>{{HomeAboutLine3}}</li>
+                    </ul>
+                    <p>{{AboutDes2}}</p>
+                    <img src="{{HomeAboutImg2}}" alt="About Image 2" class="mt-4" width="100%">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--about-us-->
+    <!--why-us-->
+
+    <div class="stay-with-us spad" style="padding-top: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="{{FormImg1}}" width="100%" alt="Form Image">
+                </div>
+                <div class="col-lg-8">
+                    <form method="post" action="sendmail.php" class="stay-with-us-form">
+                        <div class="row">
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="text" name="first-name" placeholder="Your Name" class="form-control"
+                                           autocomplete="off" required="*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="email" name="Email" placeholder="Your Email" class="form-control"
+                                           autocomplete="off" required="*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="number" maxlength="10" minlength="10" name="mobileno"
+                                           placeholder="Your Number" class="form-control" autocomplete="off" required="*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="number" maxlength="10" minlength="10" name="mobileno"
+                                           placeholder="Date" class="form-control" autocomplete="off" required="*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="text" name="first-name" placeholder="Time" class="form-control"
+                                           autocomplete="off" required="*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <div class="form-row">
+                                    <input type="text" name="first-name" placeholder="# of people" class="form-control"
+                                           autocomplete="off" required="*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <textarea rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="g-recaptcha btn" name="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--stay-with-us-->
+    {{Footer}}
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

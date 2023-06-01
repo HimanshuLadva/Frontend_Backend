@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ProductTitle}}</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+<body>
+    {{Header}}
+
+    <div class="our-products spad">
+        <div class="container {{Products}}">
+            <div class="row products-items">
+                <div class="col-lg-3 col-md-4 col-sm-12 products-img">
+                    <img src="{{ProductImg}}">
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12 products-content">
+                    <h3>{{ProductHeading}}</h3>
+                    <span class="dg-border mb-2"></span>
+                    <p>{{ProductDescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{Footer}}
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

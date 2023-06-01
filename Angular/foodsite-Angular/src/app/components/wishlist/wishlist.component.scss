@@ -1,0 +1,32 @@
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}
+
+.logo {
+    width: 400px;
+    height: 400px;
+}
+
+.wish-detail {
+    li:first-child {
+        font-size: 23px;
+        font-weight: 600;
+    }
+    li:nth-child(4) {
+        font-style: italic;
+        font-weight:500;
+    }
+    li:not(li:first-child) {
+        margin-bottom: 4px;
+    }
+}
+
+@media only screen and  (max-width: 768px) {
+    .image {
+        img {
+            width: 100%;
+        }
+    }
+}

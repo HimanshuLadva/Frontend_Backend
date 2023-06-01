@@ -1,0 +1,7 @@
+C:\Users\DELL\source\repos\CsExceptionHandling\bin\Debug\CsExceptionHandling.exe.config
+C:\Users\DELL\source\repos\CsExceptionHandling\bin\Debug\CsExceptionHandling.exe
+C:\Users\DELL\source\repos\CsExceptionHandling\bin\Debug\CsExceptionHandling.pdb
+C:\Users\DELL\source\repos\CsExceptionHandling\obj\Debug\CsExceptionHandling.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\CsExceptionHandling\obj\Debug\CsExceptionHandling.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\CsExceptionHandling\obj\Debug\CsExceptionHandling.exe
+C:\Users\DELL\source\repos\CsExceptionHandling\obj\Debug\CsExceptionHandling.pdb

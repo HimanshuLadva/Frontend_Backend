@@ -1,0 +1,33 @@
+<div class="container b-border">
+  <div class="d-flex flex-row justify-content-between">
+    <!-- <app-breadcrumb [data]="title"></app-breadcrumb> -->
+    <div class="breadcrump">
+      <ul class="bread">
+          <li (click)="moveToHome()">Home</li>
+          <li>/</li>
+          <li>{{slug}}</li>
+      </ul>
+    </div>
+    <div class="pagination">
+      <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex flex-row people-slider" *ngIf="loading">
+    <div class="container">
+      <div class="d-flex justify-content-center align-content-center">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div class="main_div" *ngIf="!loading">
+    <div class="detail"
+      *ngFor="let item of chars | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }; let i = index;">
+      <a routerLink="{{item.url}}"><img src="https://starwars-visualguide.com/assets/img/{{imageDetail}}/{{item.url}}.jpg"
+          alt="No image found" onerror="this.src='https://starwars-visualguide.com/assets/img/placeholder.jpg'"></a>
+      <span class="name-of-image d-flex justify-content-center">{{item.name}}</span>
+    </div>
+  </div>
+</div>

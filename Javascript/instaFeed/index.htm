@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instafeed on Your Website</title>
+	<style type="text/css">
+		a img{ 
+			width: 25%;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center">Show My Instagram Feed on your Website</h1>
+  <div id="instafeed-container"></div>
+
+	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+	<script type="text/javascript">
+	var userFeed = new Instafeed({
+		get: 'user',
+		target: "instafeed-container",
+    	resolution: 'high_resolution',
+		accessToken: 'IGQVJXVlgtektDRy02WjNvVFM3UTY5ajE1TjhaaUVBTmRndTNaV01vajNPQ21EdElJZAXRCYjhSV0wxbkkwMWo4OTI2SFBIMURKSmlOVUtRZAnNpczd6X1A4TE1COWFJX1F2Q0lnMlFMZADlPLTJFYXBWQwZDZD'
+	});
+	userFeed.run();
+	</script>
+</body>
+</html>

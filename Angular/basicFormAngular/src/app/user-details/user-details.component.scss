@@ -1,0 +1,12 @@
+h3 {
+    color: white;
+    background-color: rebeccapurple;
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    border-left: 2px solid white;
+
+    &:hover {
+        background-color: gray;
+    }
+}

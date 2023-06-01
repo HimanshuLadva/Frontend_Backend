@@ -1,0 +1,390 @@
+<!-- Start Header Area -->
+<header class="header-area">
+  <!-- main header start -->
+  <div class="main-header d-none d-lg-block">
+    <!-- header top start -->
+    <!--    <div class="bg-primary header-top" *ngIf="!hideMessage">-->
+    <div class="bg-primary header-top">
+      <div class="text-center text-white welcome-message">
+        <p class="text-white mb-0">Welcome to Kamara Jewellery online store</p>
+        <!--        <i-->
+        <!--          (click)="removeWelcomeMessage()"-->
+        <!--          class="fa fa-times position-absolute C_P"-->
+        <!--          style="top: 9px; right: 15px"-->
+        <!--        ></i>-->
+      </div>
+    </div>
+    <!-- header top end -->
+
+    <!-- header middle area start -->
+    <div class="header-main-area">
+      <div class="container">
+        <div class="row align-items-center pt-3">
+          <!-- start logo area -->
+          <div class="col-lg-4 mx-auto">
+            <div class="logo mx-auto text-center">
+              <a routerLink="/">
+                <img alt="Brand Logo" src="assets/theme/img/logo/logo.png" />
+              </a>
+            </div>
+          </div>
+          <!-- start logo area -->
+        </div>
+        <div class="row" style="width: 120%; margin:auto">
+          <!-- main menu area start -->
+          <div class="col-7">
+            <div class="main-menu-area sticky d-flex">
+              <a href="#" routerLink="/" class="sticky__logo my-auto ml-2">
+                <img
+                  alt="Brand Logo"
+                  src="assets/theme/img/logo/logo.png"
+                  class="sticky__logo_img"
+                />
+              </a>
+              <div class="main-menu">
+                <!-- main menu navbar start -->
+                <app-mega-menu
+                  *ngIf="categoryTree"
+                  [categoryTree]="categoryTree"
+                ></app-mega-menu>
+                <!-- main menu navbar end -->
+              </div>
+              <div class="sticky__icons my-auto mr-2">
+                <div class="w-100 header-right">
+                  <div class="header-configure-area">
+                    <ul class="nav justify-content-end">
+                      <li class="contact-hover">
+                        <a href="#" class="my-auto">
+                          <img src="assets/svg/support.svg" class="svg-icon" alt="support icon"/>
+                        </a>
+                        <ul class="dropdown-list" style="width: 20rem">
+                          <li>
+                            <div class="row">
+                              <div class="col-sm-12 option">
+                                <div class="call-text">Call Us&nbsp;</div>
+                                <div style="margin-bottom: 0">
+                                  <div>
+                                    <div class="phoneno-text">8866008860</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="col-sm-12 pt-3"
+                                style="font-size: 14px; cursor: pointer"
+                              >
+                                Need more help?&nbsp;
+                              </div>
+                              <div class="col-sm-12 pt-3 info-text">
+                                Connect with our team and they will sort it out
+                                for you
+                              </div>
+                              <div class="row media-container">
+                                <div class="col-4 media-col">
+                                  <div class="media-icon">
+                                    <i
+                                      style="color: green"
+                                      class="fa fa-whatsapp fa-2x"
+                                    ></i>
+                                  </div>
+                                </div>
+                                <div class="col-4 media-col">
+                                  <div class="media-icon">
+                                    <i
+                                      style="color: green"
+                                      class="fa fa-facebook fa-2x"
+                                    ></i>
+                                  </div>
+                                </div>
+                                <div class="col-4 media-col">
+                                  <div class="media-icon">
+                                    <i
+                                      style="color: green"
+                                      class="fa fa-twitter fa-2x"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row media">
+                                <div class="col-4 media-text">Whatsapp us</div>
+                                <div class="col-4 media-text">Facebook</div>
+                                <div class="col-4 media-text">Twitter</div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="user-hover ml-1">
+                        <a href="#">
+                          <img src="assets/svg/user.svg" class="svg-icon" alt="user icon"/>
+                        </a>
+                        <ul class="dropdown-list">
+                          <ng-container *ngIf="authService.isUserGuest">
+                            <li>
+                              <a [routerLink]="RouteConfig.auth_login">login</a>
+                            </li>
+                            <li>
+                              <a [routerLink]="RouteConfig.auth_register"
+                                >register</a
+                              >
+                            </li>
+                          </ng-container>
+                          <ng-container *ngIf="authService.isUserLogin">
+                            <li>
+                              <a [routerLink]="RouteConfig.auth_account"
+                                >my account</a
+                              >
+                            </li>
+                            <li>
+                              <a (click)="authService.logout()">Logout</a>
+                            </li>
+                          </ng-container>
+                        </ul>
+                      </li>
+                      <li class="ml-1">
+                        <a [routerLink]="RouteConfig.wishlist">
+                          <img
+                            src="assets/svg/wishlist.svg"
+                            class="svg-icon"
+                            style="width: 40px"
+                            alt="wishlist icon"
+                          />
+                          <div class="notification">{{ wishlistCount }}</div>
+                        </a>
+                      </li>
+                      <!--                  <li *ngIf="authService.isUserLogin">-->
+                      <li class="ml-1">
+                        <a
+                          (click)="eventBusEmitService.showMiniCartModal()"
+                          class="C_P"
+                          href="#"
+                        >
+                          <img
+                            src="assets/svg/cart.svg"
+                            class="svg-icon"
+                            style="width: 40px"
+                            alt="cart icon"
+                          />
+                          <div class="notification">
+                            {{ cartCount }}
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5 d-flex">
+            <div
+              class="
+                w-100
+                header-right
+                d-flex
+                align-items-center
+                justify-content-xl-between justify-content-lg-end
+              "
+            > 
+              <app-autocomplete class="searchbox"></app-autocomplete>
+              <div class="header-configure-area">
+                <ul class="nav justify-content-end">
+                  <li class="contact-hover">
+                    <a href="#" class="d-flex">
+                      <img src="assets/svg/support.svg" class="svg-icon" alt="support icon"/>
+                    </a>
+                    <ul class="dropdown-list" style="width: 20rem">
+                      <li>
+                        <div class="row">
+                          <div class="col-sm-12 option">
+                            <div class="call-text">Call Us&nbsp;</div>
+                            <div style="margin-bottom: 0">
+                              <div>
+                                <div class="phoneno-text">8866008860</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="col-sm-12 pt-3"
+                            style="font-size: 14px; cursor: pointer"
+                          >
+                            Need more help?&nbsp;
+                          </div>
+                          <div class="col-sm-12 pt-3 info-text">
+                            Connect with our team and they will sort it out for
+                            you
+                          </div>
+                          <div class="row media-container">
+                            <div class="col-4 media-col">
+                              <div class="media-icon">
+                                <i
+                                  style="color: green"
+                                  class="fa fa-whatsapp fa-2x"
+                                ></i>
+                              </div>
+                            </div>
+                            <div class="col-4 media-col">
+                              <div class="media-icon">
+                                <i
+                                  style="color: green"
+                                  class="fa fa-facebook fa-2x"
+                                ></i>
+                              </div>
+                            </div>
+                            <div class="col-4 media-col">
+                              <div class="media-icon">
+                                <i
+                                  style="color: green"
+                                  class="fa fa-twitter fa-2x"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row media">
+                            <div class="col-4 media-text">Whatsapp us</div>
+                                <div class="col-4 media-text">Facebook</div>
+                                <div class="col-4 media-text">Twitter</div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="user-hover ml-0">
+                    <a href="#" class="d-flex">
+                      <img src="assets/svg/user.svg" class="svg-icon" alt="user icon"/>
+                    </a>
+                    <ul class="dropdown-list">
+                      <ng-container *ngIf="authService.isUserGuest">
+                        <li>
+                          <a [routerLink]="RouteConfig.auth_login">login</a>
+                        </li>
+                        <li>
+                          <a [routerLink]="RouteConfig.auth_register"
+                            >register</a
+                          >
+                        </li>
+                      </ng-container>
+                      <ng-container *ngIf="authService.isUserLogin">
+                        <li class="d-none">
+                          <span>{{
+                            authService.User.first_name | titlecase
+                          }}</span>
+                        </li>
+                        <li>
+                          <a [routerLink]="RouteConfig.auth_account"
+                            >my account</a
+                          >
+                        </li>
+                        <li><a (click)="authService.logout()">Logout</a></li>
+                      </ng-container>
+                    </ul>
+                  </li>
+                  <li class="ml-0">
+                    <a [routerLink]="RouteConfig.wishlist">
+                      <img
+                        src="assets/svg/wishlist.svg"
+                        class="svg-icon"
+                        style="width: 40px; margin-top: 0;"
+                        alt="wishlist icon"
+                      />
+                      <div class="notification">{{ wishlistCount }}</div>
+                    </a>
+                  </li>
+                  <!--                  <li *ngIf="authService.isUserLogin">-->
+                  <li class="ml-0">
+                    <a
+                      (click)="eventBusEmitService.showMiniCartModal()"
+                      class="C_P"
+                      href="#"
+                    >
+                      <img
+                        src="assets/svg/cart.svg"
+                        class="svg-icon"
+                        style="width: 40px"
+                        alt="cart icon"
+                      />
+                      <div class="notification">
+                        {{ cartCount }}
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- main menu area end -->
+        </div>
+      </div>
+    </div>
+    <!-- header middle area end -->
+  </div>
+  <!-- main header start -->
+
+  <!-- mobile header start -->
+  <div class="mobile-header d-lg-none d-md-block sticky pt-0">
+    <!--mobile header top start -->
+    <div class="bg-primary header-top mb-2">
+      <div class="text-center text-white welcome-message">
+        <p class="text-white mb-0">Welcome to Kamara Jewellery online store</p>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="mobile-main-header">
+            <div class="mobile-logo">
+              <a routerLink="/">
+                <img alt="Brand Logo" src="assets/theme/img/logo/logo.png"/>
+              </a>
+            </div>
+            <div class="mobile-menu-toggler">
+              <div class="mini-cart-wrap">
+                <a [routerLink]="RouteConfig.wishlist" class="C_P">
+                  <img
+                    src="assets/svg/wishlist.svg"
+                    class="svg-icon"
+                    style="width: 40px"
+                    alt="wishlist icon"
+                  />
+                  <div class="notification mobile-icon-top-right">
+                    {{ wishlistCount }}
+                  </div>
+                </a>
+              </div>
+              <div class="mini-cart-wrap">
+                <a [routerLink]="RouteConfig.cart" class="C_P ml-1">
+                  <img
+                    src="assets/svg/cart.svg"
+                    class="svg-icon"
+                    style="width: 40px"
+                    alt="cart icon"
+                  />
+                  <div class="notification mobile-icon-top-right">
+                    {{ cartCount }}
+                  </div>
+                </a>
+              </div>
+              <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile header top start -->
+  </div>
+  <!-- mobile header end -->
+
+  <app-mega-menu
+    *ngIf="categoryTree"
+    [categoryTree]="categoryTree"
+    isMobile="true"
+  ></app-mega-menu>
+</header>
+<!-- end Header Area -->
+
+<app-mini-cart></app-mini-cart>

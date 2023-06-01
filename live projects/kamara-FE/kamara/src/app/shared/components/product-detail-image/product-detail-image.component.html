@@ -1,0 +1,84 @@
+<!--desktop start-->
+<div
+  class="row d-none d-md-flex"
+  *ngIf="productImage && productImage?.length > 0"
+>
+  <div class="col-2" style="min-height: 400px">
+    <div class="pro-nav-desktop slick-row-11 slick-arrow-style mt-0">
+      <div class="pro-nav-thumb my-1" *ngFor="let image of productImage">
+        <img [src]="image.small_image_url" alt="product-details" />
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="product-large-slider-desktop">
+      <div class="pro-large-img img-zoom" *ngFor="let image of productImage">
+        <img
+          [src]="image.large_image_url"
+          alt="product-details"
+          #desktopImgList
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- mobile start-->
+<div
+  (click)="toggleModal()"
+  class="product-large-slider-mobile d-md-none"
+  *ngIf="productImage && productImage?.length > 0"
+>
+  <div class="pro-large-img" *ngFor="let image of productImage">
+    <img [src]="image.large_image_url" alt="product-details" />
+  </div>
+</div>
+<div
+  class="pro-nav-mobile slick-row-10 slick-arrow-style d-md-none mt-3"
+  *ngIf="productImage && productImage?.length > 0"
+>
+  <div class="pro-nav-thumb" *ngFor="let image of productImage">
+    <img [src]="image.small_image_url" alt="product-details" #mobileImgList />
+  </div>
+</div>
+
+<!-- Modal for mobile -->
+
+<div *ngIf="isShowModal" class="modal-fade-in vh-100">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div
+        data-dismiss="modal"
+        class="ic-close-quickview"
+        (click)="toggleModal()"
+      >
+        <i class="fa fa-close"></i>
+      </div>
+      <div
+        class="product-large-slider-mobile-popup d-md-none"
+        *ngIf="productImage && productImage?.length > 0"
+      >
+        <div class="pro-large-img" *ngFor="let image of productImage">
+          <img [src]="image.large_image_url" alt="product-details" />
+        </div>
+      </div>
+      <div
+        class="
+          pro-nav-mobile-popup
+          slick-row-10 slick-arrow-style
+          d-md-none
+          mt-3
+        "
+        *ngIf="productImage && productImage?.length > 0"
+      >
+        <div class="pro-nav-thumb" *ngFor="let image of productImage">
+          <img
+            [src]="image.small_image_url"
+            alt="product-details"
+            #mobileImgList
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

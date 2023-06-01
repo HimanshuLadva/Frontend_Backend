@@ -1,0 +1,9 @@
+<div class="main_div">
+    <div class="detail" *ngFor="let item of printDetails">
+      <a><img src="https://starwars-visualguide.com/assets/img/characters/{{item.count}}.jpg" alt="No image found"></a>
+      <!-- <app-chardetail [sendData]="value" *ngIf="move"></app-chardetail> -->
+      <h2>{{item.name}}</h2>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

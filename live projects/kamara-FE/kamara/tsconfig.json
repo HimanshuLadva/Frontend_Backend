@@ -1,0 +1,49 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@auth/*": [
+        "src/app/auth/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+      "@modals/*": [
+        "src/app/modals/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  }
+}

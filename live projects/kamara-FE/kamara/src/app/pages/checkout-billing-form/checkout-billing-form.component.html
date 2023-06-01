@@ -1,0 +1,97 @@
+<div class="checkout-billing-details-wrap mt-3">
+  <h5 class="checkout-title">Shipping Details</h5>
+  <div *ngIf="!savedAddressId" class="billing-form-wrap">
+    <form (ngSubmit)="addressFormSubmit()" [formGroup]="addressForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="single-input-item">
+            <label class="required" for="f_name">First Name</label>
+            <input [class.is-invalid]="hasError(addressForm.get('first_name'))" formControlName="first_name"
+                   id="f_name" placeholder="First Name"
+                   required="" type="text">
+            <small *ngIf="hasError(addressForm.get('first_name'))" class="text-danger">Please Enter
+              first name</small>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="single-input-item">
+            <label class="required" for="l_name">Last Name</label>
+            <input [class.is-invalid]="hasError(addressForm.get('last_name'))" formControlName="last_name"
+                   id="l_name" placeholder="Last Name" required="" type="text">
+            <small *ngIf="hasError(addressForm.get('last_name'))" class="text-danger">Please Enter
+              last name</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="single-input-item">
+        <label for="com-name">Company Name</label>
+        <input formControlName="company_name" id="com-name" placeholder="Company Name" type="text">
+      </div>
+
+      <div class="single-input-item">
+        <label class="required" for="country">Country</label>
+        <select [class.is-invalid]="hasError(addressForm.get('country'))" class="form-control nice-select"
+                formControlName="country" id="country"
+                name="country nice-select">
+          <option *ngFor="let country of countryList" [value]="country.code">{{country.name}}
+            ({{country.code}})
+          </option>
+        </select>
+        <small *ngIf="hasError(addressForm.get('country'))" class="text-danger">Please Select
+          country</small>
+      </div>
+
+      <div class="single-input-item">
+        <label class="required mt-20" for="street-address">Street address</label>
+        <input [class.is-invalid]="hasError(addressForm.get('address_line_1'))" formControlName="address_line_1"
+               id="street-address" placeholder="Street address Line 1"
+               required=""
+               type="text">
+        <small *ngIf="hasError(addressForm.get('address_line_1'))" class="text-danger">Please Enter
+          address Line 1</small>
+      </div>
+
+      <div class="single-input-item">
+        <input formControlName="address_line_2" placeholder="Street address Line 2 (Optional)" type="text">
+      </div>
+
+      <div class="single-input-item">
+        <label class="required" for="postcode">Postcode / ZIP</label>
+        <input (change)="loadFromPostcode($event.target.value)"
+               [class.is-invalid]="hasError(addressForm.get('postcode'))" formControlName="postcode" id="postcode"
+               placeholder="Postcode / ZIP"
+               required="" type="text">
+        <small *ngIf="hasError(addressForm.get('postcode'))" class="text-danger">Please Enter
+          Postcode</small>
+      </div>
+      <div class="single-input-item">
+        <label class="required" for="town">Town / City</label>
+        <input [class.is-invalid]="hasError(addressForm.get('city'))" formControlName="city" id="town"
+               placeholder="Town / City" required="" type="text">
+        <small *ngIf="hasError(addressForm.get('city'))" class="text-danger">Please Enter
+          city</small>
+      </div>
+
+      <div class="single-input-item">
+        <label class="required" for="state">State</label>
+        <input [class.is-invalid]="hasError(addressForm.get('state_'))" formControlName="state_" id="state"
+               placeholder="State" type="text">
+        <small *ngIf="hasError(addressForm.get('state_'))" class="text-danger">Please Enter
+          state</small>
+      </div>
+
+
+      <div class="single-input-item">
+        <label for="phone">Phone</label>
+        <input formControlName="phone" id="phone" placeholder="Phone" type="text">
+      </div>
+      <button class="btn btn-sqr mt-2" type="submit">{{isNew ? 'Save Address' : 'Save as shipping Address'}}
+      </button>
+    </form>
+  </div>
+  <div *ngIf="savedAddressId" class="billing-form-wrap">
+    <app-address [address]="savedAddress"></app-address>
+  </div>
+</div>

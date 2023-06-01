@@ -1,0 +1,7 @@
+C:\CsFunction\bin\Debug\CsFunction.exe.config
+C:\CsFunction\bin\Debug\CsFunction.exe
+C:\CsFunction\bin\Debug\CsFunction.pdb
+C:\CsFunction\obj\Debug\CsFunction.csproj.AssemblyReference.cache
+C:\CsFunction\obj\Debug\CsFunction.csproj.CoreCompileInputs.cache
+C:\CsFunction\obj\Debug\CsFunction.exe
+C:\CsFunction\obj\Debug\CsFunction.pdb

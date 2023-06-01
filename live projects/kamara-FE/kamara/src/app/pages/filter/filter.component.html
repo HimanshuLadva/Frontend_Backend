@@ -1,0 +1,97 @@
+<aside class="sidebar-wrapper d-none d-md-block">
+  <!-- single sidebar start -->
+  <div *ngIf="!routeCategorySlug" class="sidebar-single">
+    <h5 class="sidebar-title">categories</h5>
+    <div *ngIf="!isLoading" class="sidebar-body">
+      <ul
+        *ngIf="categoryList?.length > 0"
+        class="checkbox-container categories-list"
+      >
+        <ng-container *ngFor="let category of categoryList; let i = index">
+          <li *ngIf="i < showCount">
+            <div class="custom-control custom-checkbox">
+              <input
+                (change)="handleCategoryChange(category.id)"
+                [checked]="categoryId == category.id"
+                [id]="'CATE_' + category.id"
+                class="custom-control-input"
+                name="category"
+                type="checkbox"
+              />
+              <label
+                [for]="'CATE_' + category.id"
+                class="custom-control-label"
+                >{{ category.name | titlecase }}</label
+              >
+            </div>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="DEFAULT_SHOW_COUNT < categoryList?.length">
+          <li
+            (click)="showMore()"
+            *ngIf="showCount != categoryList?.length"
+            class="C_P"
+          >
+            show more
+          </li>
+          <li
+            (click)="showMore(true)"
+            *ngIf="showCount == categoryList?.length"
+            class="C_P"
+          >
+            show less
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <!-- single sidebar end -->
+
+  <!-- single sidebar start -->
+  <div
+    *ngIf="!isLoading && priceMax != 0 && priceMin != 0 && false"
+    class="sidebar-single"
+  >
+    <h5 class="sidebar-title">price</h5>
+    <div class="sidebar-body">
+      <app-price-range
+        (priceChange)="handlePriceChange($event)"
+        [ceil]="priceMax"
+        [floor]="priceMin"
+      ></app-price-range>
+    </div>
+  </div>
+  <!-- single sidebar end -->
+
+  <ng-container
+    *ngIf="!isLoading && filterList?.filterable_attributes?.length > 0"
+  >
+    <app-filter-attribute
+      (attributeOptionChange)="handleAttributeChange($event)"
+      *ngFor="let attribute of filterList.filterable_attributes"
+      [attribute]="attribute"
+    ></app-filter-attribute>
+  </ng-container>
+
+  <!-- single sidebar start -->
+  <div class="sidebar-banner d-none">
+    <div class="img-container">
+      <a href="#">
+        <img alt="banner image" src="assets/theme/img/banner/sidebar-banner.jpg" />
+      </a>
+    </div>
+  </div>
+  <!-- single sidebar end -->
+</aside>
+
+<app-mobile-filter
+  (onFilterChange)="handleMobileFilterChange($event)"
+  (priceChange)="handlePriceChange($event)"
+  [filterList]="filterList"
+  [categoryList]="categoryList"
+  [ceil]="priceMax"
+  [floor]="priceMin"
+  class="d-md-none"
+></app-mobile-filter>
+<!-- *ngIf="showMobileFilter && categoryList?.length > 0" -->

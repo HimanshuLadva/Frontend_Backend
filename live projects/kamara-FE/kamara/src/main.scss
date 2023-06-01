@@ -1,0 +1,10 @@
+.border-y-collapse {
+  border-top: 1px solid $theme-color;
+  border-bottom: 1px solid $theme-color;
+}
+hr.product-hr {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-top: 1px solid $theme-color;
+}

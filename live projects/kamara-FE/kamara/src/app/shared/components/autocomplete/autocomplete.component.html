@@ -1,0 +1,65 @@
+<ng-container *ngIf="!isMobile">
+  <form
+    (ngSubmit)="searchProduct(input.value)"
+    class="d-lg-none d-xl-block mt-3 animated jackInTheBox"
+  >
+    <div class="sample thirteen">
+      <input
+        type="text"
+        name="search"
+        #input
+        placeholder="Search Entire Store Here"
+        autocomplete="off"
+      />
+      <button type="submit" class="btn btn-search">
+        <img src="assets/svg/search.svg" alt="search icon" />
+      </button>
+    </div>
+  </form>
+</ng-container>
+<!-- search box start -->
+<div *ngIf="isMobile" class="search-box-offcanvas">
+  <form (ngSubmit)="formSubmit()">
+    <input
+      type="text"
+      name="search"
+      placeholder="Search Entire Store Here"
+      #auto
+      style="font-size: 17px"
+      autocomplete="off"
+    />
+    <button type="submit" class="mobileSearch">
+      <i class="pe-7s-search"></i>
+    </button>
+    <!-- <ng-autocomplete
+      #auto
+      (inputChanged)="onChangeSearch($event)"
+      (inputFocused)="onFocused($event)"
+      (selected)="selectEvent($event)"
+      [(ngModel)]="empty"
+      [data]="data"
+      [itemTemplate]="itemTemplate"
+      [ngModelOptions]="{ standalone: true }"
+      [notFoundTemplate]="notFoundTemplate"
+      [searchKeyword]="keyword"
+      class="mobile-ng-autocomplete"
+      placeholder="Search entire store here"
+    > -->
+    <!-- </ng-autocomplete> -->
+    <!-- <ng-template #itemTemplate let-item>
+      <span class="ml-1" style="color: black">{{
+        item.label | titlecase
+      }}</span>
+      <ng-container *ngIf="item.isCategory == 1">
+        <br />
+        <span class="ml-1" style="font-size: 12px; color: #2525a3"
+          >in {{ getCategory(item.url) | titlecase }}</span
+        >
+      </ng-container>
+    </ng-template> -->
+    <!-- <ng-template #notFoundTemplate let-notFound>
+      <div>not found press enter to search all</div>
+    </ng-template> -->
+  </form>
+</div>
+<!-- search box end -->

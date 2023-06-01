@@ -1,0 +1,103 @@
+<div *ngIf="!pincode">
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#exampleModalCenter"
+    [hidden]="true"
+    #launchModel
+  >
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal-fade-in vh-100" id="exampleModalCenter">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div data-dismiss="modal" class="ic-close-quickview">
+          <i class="fa fa-close"></i>
+        </div>
+        <div class="locale text-center">
+          <h1 class="locale__header">Choose Your Location</h1>
+          <div class="locale__image">
+            <img
+              src="https://assets.ajio.com/static/img/user-address.png"
+              alt="User Location Permission"
+              style="height: 100%"
+            />
+          </div>
+          <p class="locale__message">
+            Select a delivery location to see product availability and delivery
+            options
+          </p>
+          <form
+            (ngSubmit)="addPincode(pincodeForm)"
+            [formGroup]="pincodeForm"
+            *ngIf="pincodeForm"
+            class="w-100"
+          >
+            <div class="single-input-item" style="width: 100% !important">
+              <input
+                [class.is-invalid]="hasError(pincodeForm.get('pincode'))"
+                formControlName="pincode"
+                placeholder="Enter your pincode"
+                type="number"
+              />
+              <small
+                *ngIf="hasError(pincodeForm.get('pincode'))"
+                class="text-danger"
+                >Please Enter Valid Pincode</small
+              >
+            </div>
+            <div class="refreshBtn">
+              <button
+                class="apply-button"
+                type="submit"
+                aria-label="Allow Location"
+              >
+                <span>Apply Pincode</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isShowMessage">
+  <div
+    class="
+      align-items-center
+      bg-primary
+      d-flex
+      justify-content-center
+      position-fixed
+      text-white-all
+      z_1000
+    "
+    style="top: 0; left: 0; right: 0; min-height: 65px"
+  >
+    <p class="text-white">{{ message }}</p>
+  </div>
+</div>
+<div
+  *ngIf="isLoading"
+  class="
+    align-items-center
+    d-flex
+    justify-content-center
+    position-fixed
+    vh-100
+    w-100
+    z_1000
+    loading_bg
+  "
+>
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

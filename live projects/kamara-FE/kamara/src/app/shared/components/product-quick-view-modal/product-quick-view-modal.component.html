@@ -1,0 +1,134 @@
+<!-- Quick view modal start -->
+<div class="modal" id="quick_view_modal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- product details inner end -->
+        <div *ngIf="product" class="product-details-inner">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="product-large-slider">
+                <div
+                  *ngFor="let image of product?.images"
+                  class="pro-large-img img-zoom"
+                >
+                  <img [src]="image.medium_image_url" alt="product-details" />
+                </div>
+              </div>
+              <div class="pro-nav slick-row-10 slick-arrow-style">
+                <div
+                  *ngFor="let image of product?.images"
+                  class="pro-nav-thumb"
+                >
+                  <img [src]="image.small_image_url" alt="product-details" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="product-details-des">
+                <div class="manufacturer-name d-none">
+                  <a href="product-details.html">HasTech</a>
+                </div>
+                <h3 class="product-name">{{ product?.name }}</h3>
+                <div class="ratings d-flex">
+                  <span *ngFor="let x of [1, 2, 3, 4, 5]">
+                    <i
+                      *ngIf="product?.reviews?.average_rating >= x"
+                      class="fa fa-star"
+                    ></i>
+                    <i
+                      *ngIf="product?.reviews?.average_rating <= x"
+                      class="fa fa-star-o"
+                    ></i>
+                  </span>
+                  <div class="pro-review">
+                    <span>{{ product?.reviews?.total }} Reviews</span>
+                  </div>
+                </div>
+                <div class="price-box">
+                  <span class="price-regular">{{
+                    product?.formated_price
+                  }}</span>
+                  <span class="price-old d-none"><del>$90.00</del></span>
+                </div>
+                <div class="availability">
+                  <ng-container *ngIf="product?.in_stock">
+                    <i class="fa fa-check-circle"></i>
+                    <span>in stock</span>
+                  </ng-container>
+                  <ng-container *ngIf="!product?.in_stock">
+                    <i class="fa fa-times-circle text-danger"></i>
+                    <span>Stock Out</span>
+                  </ng-container>
+                </div>
+                <div
+                  [innerHTML]="product?.short_description"
+                  class="pro-desc"
+                ></div>
+                <div
+                  *ngIf="product.show_quantity_changer"
+                  class="quantity-cart-box d-flex align-items-center"
+                >
+                  <h6 class="option-title">qty:</h6>
+                  <div class="quantity">
+                    <div class="pro-qty">
+                      <span class="dec qtybtn">-</span>
+                      <input type="text" value="1" />
+                      <span class="inc qtybtn">+</span>
+                    </div>
+                  </div>
+                  <div *ngIf="!product.is_item_in_cart" class="action_link">
+                    <button
+                      (click)="addToCart()"
+                      [class.C_NA]="!product.in_stock"
+                      [disabled]="!product.in_stock"
+                      class="btn btn-cart2 d-none"
+                    >
+                      Add to cart
+                    </button>
+                    <!--                    <a (click)="addToCart()" class="btn btn-cart2 C_P"></a>-->
+                  </div>
+                </div>
+                <div class="useful-links">
+                  <a data-toggle="tooltip" href="#" title="Wishlist"
+                    ><i class="pe-7s-like"></i>wishlist</a
+                  >
+                </div>
+                <ng-container *ngIf="product?.type == 'configurable'">
+                  <ng-container *ngFor="let attr of product.super_attributes">
+                    <app-super-attribute
+                      (changeAttribute)="handleAttributeChange($event)"
+                      [superAttribute]="attr"
+                    ></app-super-attribute>
+                  </ng-container>
+                </ng-container>
+
+                <div class="like-icon">
+                  <a class="facebook" href="#"
+                    ><i class="fa fa-facebook"></i>like</a
+                  >
+                  <a class="twitter" href="#"
+                    ><i class="fa fa-twitter"></i>tweet</a
+                  >
+                  <a class="pinterest" href="#"
+                    ><i class="fa fa-pinterest"></i>save</a
+                  >
+                  <a class="google" href="#"
+                    ><i class="fa fa-google-plus"></i>share</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- product details inner end -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Quick view modal end -->

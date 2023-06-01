@@ -1,0 +1,7 @@
+C:\CsArray\bin\Debug\CsArray.exe.config
+C:\CsArray\bin\Debug\CsArray.exe
+C:\CsArray\bin\Debug\CsArray.pdb
+C:\CsArray\obj\Debug\CsArray.csproj.AssemblyReference.cache
+C:\CsArray\obj\Debug\CsArray.csproj.CoreCompileInputs.cache
+C:\CsArray\obj\Debug\CsArray.exe
+C:\CsArray\obj\Debug\CsArray.pdb

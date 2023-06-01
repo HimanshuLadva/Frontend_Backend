@@ -1,0 +1,12 @@
+<h1>teamlist</h1>
+<button (click)="moveToAdd()">Add Team</button>
+<ul *ngFor="let item of teamList">
+    <li><strong>{{item.teamName}}</strong></li>
+    <li *ngFor="let item2 of item.employees">
+        {{item2.employee}}
+    </li>
+    <li>
+        <button (click)="editTeam(item.id)">Edit Team</button>&nbsp;
+        <button (click)="deleteTeam(item.id)">Delete Team</button>
+    </li>
+</ul>

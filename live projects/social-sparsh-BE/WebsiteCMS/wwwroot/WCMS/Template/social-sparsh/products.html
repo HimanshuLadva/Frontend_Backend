@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{Meta}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    {{GATagHeader}}
+    {{FacebookPixel}}
+</head>
+
+<body>
+    {{GATagBody}}
+    {{Header}}
+
+    <div class="container">
+        <select class="form-select w-100 {{Categories}}" onchange="location = this.value;">
+            <option selected disabled hidden>Categories</option>
+            <option value="{{PageLink}}" id="{{CategoryId}}">{{Name}}</option>
+        </select>
+    </div>
+
+    <div class="our-products spad">
+        <div class="container {{Products}}">
+            <div class="row products-items">
+                <a href="{{ProductLink}}" class="col-lg-3 col-md-4 col-sm-12 products-img">
+                    <img src="{{ProductImg}}">
+                </a>
+                <div class="col-lg-9 col-md-8 col-sm-12 products-content">
+                    <a href="{{ProductLink}}" class="h3 text-black">{{ProductHeading}}</a>
+                    <span class="dg-border mb-2"></span>
+                    <p>{{ProductDescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{Footer}}
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

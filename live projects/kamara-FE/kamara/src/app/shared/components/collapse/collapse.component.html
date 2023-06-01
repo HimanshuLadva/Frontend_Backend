@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h6 class="C_P py-2 d-flex justify-content-between" (click)="toggle()">
+      <ng-container *ngIf="!hasCustomHeader">
+        {{ title }}
+        <i class="fa fa-plus" *ngIf="isPlus"></i>
+        <i class="fa fa-minus" *ngIf="!isPlus"></i>
+      </ng-container>
+      <ng-container *ngIf="hasCustomHeader">
+        <ng-content select="[card-heading]"> </ng-content>
+      </ng-container>
+    </h6>
+  </div>
+  <div class="panel-collapse collapse {{ mainClass }}" role="tabpanel">
+    <ng-container *ngIf="hasCustomHeader">
+      <ng-content select="[card-body]"></ng-content>
+    </ng-container>
+    <ng-container *ngIf="!hasCustomHeader">
+      <ng-content></ng-content>
+    </ng-container>
+  </div>
+</div>

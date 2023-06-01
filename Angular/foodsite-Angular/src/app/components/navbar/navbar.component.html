@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-warning bg-gradient sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">UNIVERSAL FOOD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['menu/burgers']" [queryParams]="{page:1 ,limit:8}">Burger</a></li>
+              <li><a class="dropdown-item" [routerLink]="['menu/breads']" [queryParams]="{page:1, limit:8}">Bread</a></li>
+              <li><a class="dropdown-item" [routerLink]="['menu/sandwiches']" [queryParams]="{page:1, limit:8}">Sandwitch</a></li>
+              <li><a class="dropdown-item" [routerLink]="['menu/pizzas']" [queryParams]="{page:1, limit:8}">Pizza</a></li>
+              <li><a class="dropdown-item" [routerLink]="['menu/drinks']" [queryParams]="{page:1, limit:8}">Drink</a></li>
+            </ul>
+          </li>
+          <li class="mobile-v">
+            <a class="nav-link active me-3" routerLink="wishlist">wishlist</a>
+          </li>
+          <li class="mobile-v">
+            <a class="nav-link active me-3" routerLink="cart">cartlist</a>
+          </li>
+        </ul>
+        <form class="cawi" role="search">
+          <div>
+            <a class="nav-link active me-3" routerLink="wishlist"><i class="fa-solid fa-bookmark"></i></a>
+            <div class="notification wish">{{wishListCount}}</div>
+          </div>
+          <div>
+            <a class="nav-link active me-3" routerLink="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="notification cart">{{cartListCount}}</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>

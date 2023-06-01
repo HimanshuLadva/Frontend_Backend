@@ -1,0 +1,61 @@
+<!-- Checkout Login Coupon Accordion Start -->
+<div class="checkoutaccordion mb-1" id="checkOutAccordion">
+  <div class="card">
+    <h6>
+      Billing Detail
+      <span
+        #click_here_to_select_address
+        data-target="#logInaccordion"
+        data-toggle="collapse"
+        aria-expanded="true"
+        >Click Here To Select</span
+      >
+    </h6>
+    <div
+      class="collapse show"
+      data-parent="#checkOutAccordion"
+      id="logInaccordion"
+    >
+      <div class="card-body">
+        <div *ngFor="let address of addressList; let i = index">
+          <app-address [address]="address"></app-address>
+          <button (click)="addressSelect(address.id)" class="btn btn-sqr">
+            Select
+          </button>
+          <span
+            *ngIf="selectedAddressId === address.id"
+            class="text-success ml-2"
+            >selected
+          </span>
+        </div>
+        <button (click)="addAddressSelect()" class="btn btn-sqr mt-2">
+          Add Address
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="selectedAddress">
+  <app-address [address]="selectedAddress"></app-address>
+  <div class="custom-control custom-checkbox">
+    <input
+      (change)="shipToDifferentAddressClicked($event)"
+      class="custom-control-input"
+      id="ship_to_different"
+      type="checkbox"
+    />
+    <label class="custom-control-label" for="ship_to_different"
+      >Ship to a different address?</label
+    >
+  </div>
+  <ng-container *ngIf="showBillingForm">
+    <app-checkout-billing-form
+      #checkoutBillingFormComponent
+    ></app-checkout-billing-form>
+  </ng-container>
+</ng-container>
+<app-checkout-billing-form
+  (onNewAddressSave)="handleOnNewAddressSave($event)"
+  *ngIf="showAddressForm"
+  isNew="true"
+></app-checkout-billing-form>

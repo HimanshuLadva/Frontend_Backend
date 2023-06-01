@@ -1,0 +1,54 @@
+<div class="loading" *ngIf="isLoading">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div> 
+    <div class="dot"></div>
+</div>
+<div class="container" *ngIf="!isLoading">
+    <div class="d-flex flex-row">
+        <div class="detail-image d-flex flex-column">
+            <img src={{printDetail?.img}} alt="No Image Found" width="450" height="450"
+                onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'">
+        </div>
+        <div class="d-flex flex-column">
+            <ul>
+                <li>{{printDetail?.name}}</li>
+                <li>{{printDetail?.dsc}}</li>
+                <li>${{printDetail?.price}}</li> 
+                <li>
+                    <span *ngFor="let item of [].constructor(5) let i = index;">
+                        <i *ngIf="i+1 <= printDetail?.rate" class="fa-solid fa-star" style="color: orange;"></i>
+                        <i *ngIf="i+1 > printDetail?.rate" class="fa-regular fa-star" style="color: orange;"></i>
+                    </span>
+                </li>
+                <li> 
+                    <button class="sub" (click)="sub()">-</button>
+                    <span class="product-count">{{productCount}}</span>
+                    <button class="add" (click)="add()">+</button>
+                </li>
+                <li>
+                    <button  class="btn btn-warning" (click)="addToCartList()" *ngIf="!isProductInUpdate">
+                        {{message[+isProductInCart]+ 'Cart'}}
+                    </button>
+                    <button  class="btn btn-warning" (click)="upDateToCartList()" *ngIf="isProductInUpdate">
+                        Update to cart
+                    </button>&nbsp;
+                    <button class="btn btn-warning" (click)="addToWishList()">
+                        {{message[+isProductInWish]+ 'WishList'}}
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="cartMsg">
+            <label for="one" class="alert-message" [ngClass]="{'bg-success': isProductInCart, 'bg-danger': !isProductInCart}">
+                <strong>{{printDetail?.name}}</strong> {{message[+(!isProductInCart)]}} cart successfully
+            </label>
+        </div>
+        <div  class="wish-msg" *ngIf="wishMsg">
+            <label class="alert-message" [ngClass]="{'bg-success': isProductInWish, 'bg-danger': !isProductInWish}">
+               <strong>{{printDetail?.name}}</strong>  {{message[+(!isProductInWish)]}} wishlist successfully.
+            </label>
+        </div>
+    </div>
+</div>

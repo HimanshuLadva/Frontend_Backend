@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="total" *ngIf="foodList.length!=0">
+        Grand Total: <span>${{total_amount}}</span>
+    </div>
+
+        <div class="row" *ngIf="foodList.length==0">
+            <div class="image text-center">
+                <img src="assets/photos/empty-cart.png" alt="Not found" class="logo">
+            </div>
+            <div class="text-center">
+                <h2>Your cart empty</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of foodList; let i = index;" class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 d-flex flex-row">
+                <div>
+                    <a [routerLink]="['/menu','our-foods', item?.data?.id]"><img src={{item?.data?.img}} alt="No image found"  onerror="this.src='https://bookmychefs.com/uploads/dish/default_food.jpg'"></a>
+                </div>
+                <ul class="cart-detail">
+                    <li [routerLink]="['/menu','our-foods', item?.data?.id]">{{item?.data?.name}}</li>
+                    <li>{{item?.data?.dsc}}</li>
+                    <li>{{item?.data?.country}}</li>
+                    <li>${{item?.data?.price}}</li>
+                    <li>
+                        <button class="sub" (click)="removeFromCart(item?.data)">-</button>
+                        <span class="product-count">{{item.quantity}}</span>
+                        <button class="add" (click)="addIntoCart(item?.data)">+</button>
+                    </li>
+                    <li><button class="btn btn-warning" (click)="deleteFromCart(item?.data?.id)">Delete</button></li>
+                </ul>
+            </div>
+        </div>
+</div>

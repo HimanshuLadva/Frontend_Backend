@@ -1,0 +1,7 @@
+C:\Users\DELL\source\repos\CsCollections\bin\Debug\CsCollections.exe.config
+C:\Users\DELL\source\repos\CsCollections\bin\Debug\CsCollections.exe
+C:\Users\DELL\source\repos\CsCollections\bin\Debug\CsCollections.pdb
+C:\Users\DELL\source\repos\CsCollections\obj\Debug\CsCollections.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\CsCollections\obj\Debug\CsCollections.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\CsCollections\obj\Debug\CsCollections.exe
+C:\Users\DELL\source\repos\CsCollections\obj\Debug\CsCollections.pdb

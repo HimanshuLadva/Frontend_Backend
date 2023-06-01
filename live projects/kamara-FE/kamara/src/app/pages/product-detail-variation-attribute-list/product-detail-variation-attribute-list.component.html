@@ -1,0 +1,68 @@
+<hr class="product-hr" *ngIf="!auth.isUserLogin" />
+<ng-container *ngFor="let attribute of attributes; let i = index">
+  <app-collapse
+    title="{{ attribute.name | uppercase }} {{ getSelectedName(attribute) }}"
+    [open]="i == 0"
+  >
+    <div class="panel-body mb-3">
+      <ng-container
+        *ngIf="attribute.type == 'select' && attribute.swatch_type == 'color'"
+      >
+        <div class="px-3 row">
+          <div
+            class="m-1 C_P"
+            *ngFor="let option of attribute.options"
+            (click)="
+              handleAttributeChange({ value: option.id, code: attribute.code })
+            "
+          >
+            <label
+              class="color-part checked"
+              [class.checked]="isOptionChecked(attribute.code, option.id)"
+            >
+              <span [style.backgroundColor]="option.swatch_value"></span>
+            </label>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="attribute.type == 'select' && attribute.swatch_type == 'text'"
+      >
+        <div class="d-flex flex-wrap">
+          <!--          <label class="text-part" *ngFor="let option of attribute.options">-->
+          <!--            <span>S</span>-->
+          <!--          </label>-->
+          <div
+            class="border px-2 py-1 mr-2 mb-2 C_P"
+            [class.text-primary]="isOptionChecked(attribute.code, option.id)"
+            [class.border-primary]="isOptionChecked(attribute.code, option.id)"
+            *ngFor="let option of attribute.options"
+            (click)="
+              handleAttributeChange({ value: option.id, code: attribute.code })
+            "
+          >
+            {{ option.label }}
+          </div>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="attribute.type == 'select' && attribute.swatch_type == 'image'"
+      >
+        <div class="row px-3">
+          <div
+            class="C_P checked img-part m-1 px-1 py-2 text-center"
+            [class.checked]="isOptionChecked(attribute.code, option.id)"
+            *ngFor="let option of attribute.options"
+            (click)="
+              handleAttributeChange({ value: option.id, code: attribute.code })
+            "
+          >
+            <img [src]="option.image_full_path" class="img-fluid" alt="product detail"/>
+            <p>{{ option.label }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </app-collapse>
+  <hr class="product-hr" />
+</ng-container>

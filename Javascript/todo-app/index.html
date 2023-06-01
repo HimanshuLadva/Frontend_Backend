@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./main2.css">
+    <link rel="stylesheet" href="./reps2.css">
+    <title>TODO APP</title>
+  </head>
+  <body>
+    <div class="container"> 
+      <div class="header">TODO-APP</div>
+
+      <div class="list-input">
+        <input
+          type="text"
+          class="input-element"
+          id="todo-input"
+          placeholder="Enter your todo"
+        />
+        <input
+          type="text" 
+          id="search-lw"
+          class="search-lws"
+          style="display: none"
+          placeholder="Enter your search"
+          onkeyup="myFunction()"
+        />
+        <button class="add-todo btn"><i class="fa-solid fa-plus"></i></button>
+        <button class="search-todo btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <nav>
+        <div id="logo">TODO-APP</div>
+
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop"/>
+            <ul class="menu">
+                <li><a href="#" class="allSee">All</a></li>
+                <li><a href="#" class="activeSee">Active</a></li>
+                <li><a href="#" class="completedSee">Completed</a></li>
+                <li>
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-1" class="toggle" id="dlt1">Action</label>
+                    <a href="#" id="dlt" class="arrHover" onmouseenter="myAddArrow1()" onmouseleave="myRevArrow1()"><span>Action</span></a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul id="actionUl" class="hidden1" onmouseenter="myAddArrow1()" onmouseleave="myRevArrow1()">
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Delete Selected</a></li>
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Select All</a></li>
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Unselect All</a></li>
+                    </ul> 
+
+                </li>  
+
+                <li>
+                <!-- First Tier Drop Down -->
+                <label for="drop-2" class="toggle" id="action1">Sort</label>
+                <a href="#" id="action" class="arrHover" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()"><span>Operation</span></a>
+                <input type="checkbox" id="drop-2"/>
+                <ul id="sortUl" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()" class="hidden1">
+                     <!-- <li><a href="#" onclick="myAction(this.innerHTML)">Sort</a></li> -->
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">A-Z</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Z-A</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Newest</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Oldest</a></li>
+                </ul>
+                
+                </li>
+                
+            </ul>
+        </nav>
+    <div style="clear: both"></div>
+    <div class="alert_msg">No data Found</div>
+    <div class="todo-list hidden">
+      <ul class="todo-list-inner" id="list-note"></ul>
+    </div>
+  </body>
+  <script src="./demo2.js"></script>
+  <script src="./navbar.js"></script>
+</html>
